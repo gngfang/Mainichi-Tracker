@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Account</title>
+</head>
+
+<body>
+    <h1>Create a new account to keep track</h1>
+    <form action="/accounts" method="POST">
+        <fieldset>
+            <legend>New Account Info:</legend>
+            <label for="accountNumber">Account Number:</label>
+            <input type="text" name="accountNumber" required><br><br>
+
+            <label for="accountType">Account Type:</label>
+            <input type="text" name="accountType" required><br><br>
+
+            <label for="institution">Bank Name:</label>
+            <input type="text" name="institution" required><br><br>
+
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+
+</body>
+
+</html>

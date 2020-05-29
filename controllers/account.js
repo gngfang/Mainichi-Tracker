@@ -9,9 +9,15 @@ const db = require('../models');
 // Index Route
 
 router.get('/', function (req, res) {
-    res.render('account/index')
+    res.render('account/index');
 });
 
+
+// New Route
+
+router.get('/new', function (req, res) {
+    res.render("account/new");
+});
 
 
 
