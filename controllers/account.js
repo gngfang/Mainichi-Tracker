@@ -70,6 +70,19 @@ router.get('/:id/edit', function (req, res) {
     })
 })
 
+// Update Route
+
+router.put('/:id', function (req, res) {
+    db.Account.findByIdAndUpdate(req.params.id, req.body, { new: true }, function (error, updatedAccount) {
+        if (error) {
+            res.send({ message: "Internal Server Error" })
+
+        } else {
+            res.redirect(`/accounts/${updatedAccount._id}`)
+        }
+
+    })
+})
 
 
 
