@@ -54,6 +54,24 @@ router.get('/:id', function (req, res) {
     });
 });
 
+// Edit route
+
+
+router.get('/:id/edit', function (req, res) {
+    db.Account.findById(req.params.id, function (error, editAccount) {
+        if (error) {
+            res.send({ message: "Internal Server Error" })
+
+        } else {
+            const context = { account: editAccount }
+            res.render('account/edit', context)
+        }
+
+    })
+})
+
+
+
 
 
 
