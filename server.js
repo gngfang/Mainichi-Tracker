@@ -3,6 +3,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 
+/* Internal Modules */
+
+const controllers = require('./controllers');
+
 /* Instanced Modules */
 const app = express();
 
@@ -26,15 +30,11 @@ app.get('/', function (req, res) {
     res.render('home')
 });
 
+/* Account Route */
+app.use('/accounts', controllers.account);
 
-
-
-
-
-
-
-
-
+/* Transaction Route */
+app.use('/transactions', controllers.transaction);
 
 /* Server Bind */
 
