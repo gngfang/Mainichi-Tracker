@@ -85,8 +85,16 @@ router.put('/:id', function (req, res) {
 })
 
 
-
-
+// Delete Route
+router.delete('/:id', function (req, res) {
+    db.Account.findByIdAndDelete(req.params.id, function (error, deletedAccount) {
+        if (error) {
+            res.send({ message: "Internal Server Error" })
+        } else {
+            res.redirect('/accounts')
+        }
+    })
+})
 
 
 
