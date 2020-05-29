@@ -11,11 +11,19 @@
     <h1>Welcome to Account Page</h1>
     <h3>Account List</h3>
     <ul>
+        <% account.forEach(accounts=>{%>
+
         <li>
-            <a href="">Hello</a>
+            <a href="">
+
+                <%=accounts.accountNumber %>
+            </a>
+            <p><%= accounts.institution %></p>
         </li>
+        <%}) %>
     </ul>
     <a href="/accounts/new">New Account</a>
+    <a href="/">Back to home</a>
 </body>
 
 </html>

@@ -9,7 +9,14 @@ const db = require('../models');
 // Index Route
 
 router.get('/', function (req, res) {
-    res.render('account/index');
+    db.Account.find({}, function (error, allAccount) {
+        if (error) {
+            res.send({ message: "Internal Server Error" })
+        } else {
+            const context = { account: allAccount }
+            res.render('account/index', context);
+        }
+    })
 });
 
 
@@ -18,6 +25,19 @@ router.get('/', function (req, res) {
 router.get('/new', function (req, res) {
     res.render("account/new");
 });
+
+
+// Create Route
+
+router.post('/', function (req, res) {
+    db.Account.create(req.body, function (error, createdAccount) {
+        if (error) {
+            res.send({ message: "Internal Server Error" })
+        } else {
+            res.redirect('/accounts');
+        }
+    })
+})
 
 
 
