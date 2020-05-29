@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit <%= account.accountNumber %> </title>
+</head>
+
+<body>
+    <h1>Edit Account</h1>
+    <!-- Form for Editaccount -->
+    <form action="/accounts/<%= account._id %>?_method=PUT" method="POST">
+        <fieldset>
+            <legend>Edit Account Info:</legend>
+            <label for="accountNumber">Account Number:</label>
+            <input type="text" name="accountNumber" value="<%= account.accountNumber %> " required><br><br>
+
+            <label for="accountType">Account Type:</label>
+            <input type="text" name="accountType" value="<%= account.accountType %> " required><br><br>
+
+            <label for="institution">Bank Name:</label>
+            <input type="text" name="institution" value="<%= account.institution %> " required><br><br>
+
+            <label for="description">Account Description:</label>
+            <textarea name="description" value="<%= account.description%>"></textarea>
+            <!-- Submit button to update account -->
+            <input type="submit" value="Submit">
+            <!-- Back button to the show page of the specific account -->
+            <a href="/accounts/<%= account._id %> "><input type="button" value="Back"></a>
+        </fieldset>
+    </form>
+
+</body>
+
+</html>
