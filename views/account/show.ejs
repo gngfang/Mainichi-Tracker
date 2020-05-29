@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Info</title>
+</head>
+
+<body>
+    <h1>Account <%= account.accountNumber %> Info</h1>
+    Account Type: <p><%= account.accountType %> </p>
+    Bank Name: <p><%= account.institution %> </p>
+
+    Account Description: <p><%= account.description %> </p>
+
+    <a href="/accounts">Back</a>
+</body>
+
+</html>
