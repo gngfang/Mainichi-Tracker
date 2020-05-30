@@ -44,8 +44,13 @@ app.use(session({
 /* root route */
 
 app.get('/', function (req, res) {
-    res.render('home')
+    console.log(req.session);
+    res.render('home', { user: req.session.currentUser })
 });
+
+// Auth Route
+
+app.use('/', controllers.auth);
 
 /* Account Route */
 app.use('/accounts', controllers.account);

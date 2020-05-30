@@ -17,6 +17,7 @@ mongoose.connect(connectionString, {
 
 module.exports = {
     Account: require('./Account'),
-    Transaction: require('./Transaction')
+    Transaction: require('./Transaction'),
+    User: require('./User')
 };
 
