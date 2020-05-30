@@ -13,3 +13,12 @@ font-weight: bolder;
 .table-wrapper-scroll-y {
     display: block;
     }
+
+/* Nav */
+nav{
+    background-color:#30324A ;
+}
+
+a{
+    color:cornsilk;
+}
