@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Record</title>
+</head>
+
+<body>
+    <h1><%= account.accountNumber %> Transactions </h1>
+    <hr>
+    <table style="width:60%">
+        <tr>
+            <th>Trans Type</th>
+            <th>Trans Amount</th>
+            <th>Date of Trans</th>
+
+        </tr>
+        <tr>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+        </tr>
+
+    </table>
+    <section>
+        <h2>Articles</h2>
+        <%account.transactions.forEach(transaction=>{%>
+        <p>
+
+            <a href=""><%=transaction.transactionType%> </a>
+
+        </p>
+
+        <%}) %>
+    </section>
+
+</body>
+
+</html>

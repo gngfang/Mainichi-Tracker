@@ -13,8 +13,10 @@ const app = express();
 const PORT = 1000;
 
 /* MiddlesWares */
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
+app.use(express.static(__dirname + '/public'));
 
 /* App Configuration */
 app.set('view engine', 'ejs')

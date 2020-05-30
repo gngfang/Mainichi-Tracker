@@ -9,14 +9,18 @@
 
 <body>
     <h1>Account <%= account.accountNumber %> Info</h1>
+    <hr>
     Account Type: <p><%= account.accountType %> </p>
     Bank Name: <p><%= account.institution %> </p>
 
     Account Description: <p><%= account.description %> </p>
-    <a href="/accounts/<%= account._id %>/edit ">Edit</a>
+    <hr>
+    <a href="/accounts/<%= account._id %>/edit ">Edit</a></br>
     <form action="/accounts/<%= account._id %>?_method=DELETE " method="POST">
         <button type="submit">Delete</button>
-    </form>
+    </form> </br>
+    <a href="/transactions/new "> new transaction</a>
+    <a href="/accounts/<%= account._id %>/transrecord">Transactions</a>
     <a href="/accounts">Back</a>
 </body>
 
