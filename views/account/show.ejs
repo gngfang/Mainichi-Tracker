@@ -18,6 +18,8 @@
 
     <span>Bank Name:</span>
     <p><%= account.institution %> </p>
+    <span>Account Balance:</span>
+    <p><%= account.startingBalance%> </p>
 
     <span>Account Description:</span>
     <p><%= account.description %> </p>
@@ -73,6 +75,7 @@
     <form action="/accounts/<%= account._id %>?_method=DELETE " method="POST">
         <button type="submit">Delete</button>
     </form> </br>
+
     <a href="/transactions/new "> new transaction</a> </br>
 
     <!-- Nav Bar -->

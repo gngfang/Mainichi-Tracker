@@ -10,7 +10,7 @@
 
 <body>
     <h1>Log New Transactions</h1>
-    <!--  <form action="" method=" POST">
+    <form action="/transactions" method=" POST">
 
         <div>
             <label for="transactionType"> Transaction Type: </label>
@@ -29,14 +29,21 @@
         <div>
             <label for="transactionDescription"> Description: </label>
 
-            <textarea name="transactionDescription" value="Description"></textarea>
+            <textarea name="transactionDescription"></textarea>
+
+
+        </div><br>
+        <div>
+            <label for="date"> Date: </label>
+
+            <input type="text" name="date">
 
 
         </div><br>
 
+        <input type="submit" value="create">
 
-
-    </form> -->
+    </form>
 
 
 

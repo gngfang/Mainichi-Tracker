@@ -54,19 +54,6 @@ router.get('/:id', function (req, res) {
     });
 });
 
-//Transaction Route
-router.get('/:id/transrecord', function (req, res) {
-    db.Account.findById(req.params.id).populate('transaction').exec(function (error, transactionAccount) {
-        if (error) {
-            res.send({ message: "Internal Server Error" })
-
-        } else {
-            const context = { account: transactionAccount }
-            res.render('account/transaction', context)
-        }
-
-    })
-})
 
 
 
