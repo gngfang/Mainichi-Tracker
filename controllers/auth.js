@@ -40,6 +40,35 @@ router.get('/login', function (req, res) {
     res.render('auth/login');
 });
 
+// login post
+router.post('/login', async function (req, res) {
+
+    try {
+        const foundUser = await db.User.findOne({ email: req.body.email });
+        if (!foundUser) {
+            return res.send({ message: 'Password or Email Incorrect' });
+        }
+        const match = await bcrypt.compare(req.body.password, foundUser.password);
+        if (!match) {
+            return res.send({ message: "Password or Email Incorrect" });
+
+        }
+
+        req.session.currentUser = {
+            id: foundUser._id,
+            username: foundUser.username,
+        };
+        res.redirect('/');
+
+
+    } catch (error) {
+        res.send({ message: "Internal Server Error" })
+    }
+
+
+
+})
+
 
 
 
