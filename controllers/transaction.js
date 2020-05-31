@@ -11,13 +11,11 @@ router.get('/', function (req, res) {
         if (error) {
             res.send({ message: "Internal Server Error" })
         } else {
-            const context = { transaction: allTransaction }
+            const context = { transactions: allTransaction }
             res.render('transaction/index', context);
         }
     });
 });
-
-
 
 
 // New Route
@@ -30,7 +28,13 @@ router.get('/new', function (req, res) {
 // Create Route
 
 router.post('/', function (req, res) {
-    db.Transaction.create(req.body, function (error, createdTransaction) {
+    const newTransaction = {
+        transactionType: req.body.transactionType,
+        transactionAmount: req.body.transactionAmount,
+        transactionDescription: req.body.transactionDescription,
+        date: req.body.date
+    }
+    db.Transaction.create(newTransaction, function (error, createdTransaction) {
         if (error) {
             res.send({ message: "Internal Server Error" })
         } else {

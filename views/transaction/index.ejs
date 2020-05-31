@@ -10,22 +10,18 @@
 <body>
     <h1>Welcome to Transactions</h1>
     <ul>
-        <% transaction.forEach(trans=>{ %>
+        <% transactions.forEach(trans=>{ %>
 
         <li>
-            <a href="#"><%= trans.date %></a>
-
-
+            <a href=""> <%=trans.transactionType %> </a>
         </li>
 
 
         <%}) %>
-        <p>helo</p>
-
-        <a href="/transactions/new">new</a>
-
-
     </ul>
+    <p>helo</p>
+
+    <a href="/transactions/new">new</a>
 </body>
 
 </html>
