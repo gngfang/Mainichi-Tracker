@@ -11,7 +11,7 @@ router.get('/', function (req, res) {
         if (error) {
             res.send({ message: "Internal Server Error" })
         } else {
-            const context = { transactions: allTransaction }
+            const context = { transaction: allTransaction }
             res.render('transaction/index', context);
         }
     });
@@ -44,7 +44,17 @@ router.post('/', function (req, res) {
 });
 
 
+// delete route
 
+router.delete('/:id', function (req, res) {
+    db.Transaction.findByIdAndDelete(req.params.id, function (error, deletedTransactions) {
+        if (error) {
+            res.send({ message: "Internal Server Error" });
+        } else {
+            res.redirect('/transactions');
+        }
+    })
+})
 
 
 
