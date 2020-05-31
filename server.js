@@ -7,6 +7,7 @@ const MongoStore = require("connect-mongo")(session);
 
 /* Internal Modules */
 const controllers = require('./controllers');
+const authRequired = require("./middleware/authRequired");
 
 /* Instanced Modules */
 const app = express();
