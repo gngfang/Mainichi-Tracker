@@ -54,10 +54,10 @@ app.get('/', function (req, res) {
 app.use('/', controllers.auth);
 
 /* Account Route */
-app.use('/accounts', controllers.account);
+app.use('/accounts', authRequired, controllers.account);
 
 /* Transaction Route */
-app.use('/transactions', controllers.transaction);
+app.use('/transactions', authRequired, controllers.transaction);
 
 /* Server Bind */
 

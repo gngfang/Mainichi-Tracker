@@ -23,3 +23,30 @@ nav{
 a{
     color:cornsilk;
 }
+button{
+    margin-top: 10px;
+    color:cornsilk;
+    background-color:#30324A ;
+    border-radius: 25px;
+    height:50px;
+    width: 90px;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+
+}
+
+button:hover{
+    color: darkgray;
+}
+
+nav{
+    background-color:#30324A ;
+}
+
+a{
+    color:cornsilk;
+}
+
+a:hover{
+    color: darkgray;
+}

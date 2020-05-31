@@ -70,11 +70,11 @@
         </table>
     </div> </br>
 
-    <a href="/accounts/<%= account._id %>/edit "><button>Edit</button></br></a>
-    </br>
+    <a href="/accounts/<%= account._id %>/edit "><button>Edit</button></a>
+
     <form action="/accounts/<%= account._id %>?_method=DELETE " method="POST">
         <button type="submit">Delete</button>
-    </form> </br>
+    </form>
 
     <a href="/transactions/new "> new transaction</a> </br>
 

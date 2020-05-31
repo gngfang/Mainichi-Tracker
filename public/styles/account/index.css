@@ -43,3 +43,11 @@ nav{
     background-color:#30324A ;
     color:cornsilk;
 }
+
+a{
+    color:cornsilk;
+}
+
+a:hover{
+    color: darkgray;
+}

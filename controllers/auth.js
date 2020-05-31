@@ -70,9 +70,13 @@ router.post('/login', async function (req, res) {
 })
 
 
+// Log out or Destroy
 
+router.delete('/logout', async function (req, res) {
+    await req.session.destroy();
+    res.redirect('/login');
 
-
+})
 
 
 
