@@ -54,17 +54,17 @@ router.post('/login', async function (req, res) {
 
         }
 
+
         req.session.currentUser = {
             id: foundUser._id,
             username: foundUser.username,
         };
-        res.redirect('/');
+        res.redirect('/accounts');
 
 
     } catch (error) {
         res.send({ message: "Internal Server Error" })
     }
-
 
 
 })
