@@ -16,6 +16,7 @@
 
             <li>
                 <a href="#"> <%=trans.transactionType %> </a>
+                <p><%= trans.date %> </p>
                 <form action="/transactions/<%=trans._id%>?_method=DELETE" method="POST">
                     <button type="submit">Delete</button>
                 </form>
