@@ -4,20 +4,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/account/show.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <title>Account Info</title>
 </head>
 
 <body>
     <h1>Account <%= account.accountNumber %> Info</h1>
-    Account Type: <p><%= account.accountType %> </p>
-    Bank Name: <p><%= account.institution %> </p>
+    <hr>
+    <span>Account Type: </span>
+    <p><%= account.accountType %> </p>
 
-    Account Description: <p><%= account.description %> </p>
-    <a href="/accounts/<%= account._id %>/edit ">Edit</a>
+    <span>Bank Name:</span>
+    <p><%= account.institution %> </p>
+    <span>Account Balance:</span>
+    <p><%= account.startingBalance%> </p>
+
+    <span>Account Description:</span>
+    <p><%= account.description %> </p>
+    <hr>
+    <h3>Transactions Log</h3>
+    <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar ">
+
+
+        <table class="table table-striped table-dark table table-bordered table-striped mb-0">
+            <thead>
+                <tr>
+                    <th scope="col">Trans #</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+    </div> </br>
+
+    <a href="/accounts/<%= account._id %>/edit "><button>Edit</button></a>
+
     <form action="/accounts/<%= account._id %>?_method=DELETE " method="POST">
         <button type="submit">Delete</button>
     </form>
-    <a href="/accounts">Back</a>
+
+    <a href="/transactions/new "> new transaction</a> </br>
+
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg fixed-bottom">
+        <a class="navbar-brand" href="/accounts">Back</a>
+    </nav>
 </body>
 
 </html>

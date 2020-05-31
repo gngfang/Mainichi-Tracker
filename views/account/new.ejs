@@ -4,31 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="/styles/account/new.css">
     <title>New Account</title>
 </head>
 
 <body>
-    <h1>Create a new account to keep track</h1>
-    <!-- Form for create account -->
+    <h1>New Account</h1>
+    <hr>
     <form action="/accounts" method="POST">
-        <fieldset>
-            <legend>New Account Info:</legend>
-            <label for="accountNumber">Account Number:</label>
-            <input type="text" name="accountNumber" required><br><br>
-
-            <label for="accountType">Account Type:</label>
-            <input type="text" name="accountType" required><br><br>
-
+        <!-- Account Number section -->
+        <div class="form-group col-md-2">
+            <label for="accountNumber">Account Number</label>
+            <input type="text" name="accountNumber" class="form-control" placeholder="Ex: 479966389" required>
+        </div>
+        <!-- Bank name section -->
+        <div class="form-group col-md-2">
             <label for="institution">Bank Name:</label>
-            <input type="text" name="institution" required><br><br>
-            <label for="description">Account Description:</label>
-            <textarea name="description" value="Account Purpose"></textarea>
-            <!-- Submit button to create account -->
-            <input type="submit" value="Submit">
-            <!-- Back button to /accounts  -->
-            <a href="/accounts"><input type="button" value="Back"></a>
-        </fieldset>
+            <input type="text" name="institution" class="form-control" placeholder="Ex: Chase, Bank of America..."
+                required>
+        </div>
+        <!-- Account Type section -->
+        <div class="form-group col-md-2">
+            <label for="accountType">Account Type</label>
+            <select name="accountType" class="form-control" required>
+                <option selected>Choose...</option>
+                <option>Checking</option>
+                <option>Saving</option>
+            </select> <br>
+        </div>
+        <!-- Account Sstarting Balance section -->
+        <div class="form-group col-md-2">
+
+            <label for="startingBalance">Starting Balance:</label>
+            <input type="text" name="startingBalance" class="form-control" placeholder="EX:100,550..." required>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="description">Account Purpose:</label>
+            <textarea name="description" class="form-control" cols="30" rows="1"
+                placeholder="for expense, for saving"> </textarea>
+        </div> </br>
+        <!-- The create button section -->
+        <div class="form-group col-md-2">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
     </form>
+
 
 </body>
 

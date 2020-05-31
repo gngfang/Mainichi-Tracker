@@ -1,0 +1,53 @@
+body{
+    font-family: "Raleway", sans-serif;
+}
+.container{
+    color: cornsilk;
+    background-color: #30324A;
+    width: 400px;
+    height:100px;
+    border-radius: 25px;
+    overflow: auto;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+
+}
+
+span{
+    
+    margin:10px auto;
+    font-weight: bolder;
+    
+}
+
+p{
+    margin:10px auto;
+    position: relative;
+    
+}
+a{
+    color: cornsilk;
+}
+
+h3{
+    text-align: center;
+}
+button{
+    
+    border-radius: 25px;
+    background-image: linear-gradient(to bottom right, grey, white); 
+}
+
+nav{
+    background-color:#30324A ;
+    color:cornsilk;
+}
+
+a{
+    color:cornsilk;
+}
+
+a:hover{
+    color: darkgray;
+}

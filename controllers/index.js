@@ -1,4 +1,5 @@
 module.exports = {
     account: require('./account'),
-    transaction: require('./transaction')
+    transaction: require('./transaction'),
+    auth: require('./auth')
 };

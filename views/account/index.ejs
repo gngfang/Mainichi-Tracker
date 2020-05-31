@@ -4,26 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="/styles/account/index.css">
     <title>Account</title>
 </head>
 
 <body>
+
     <h1>Welcome to Account Page</h1>
     <h3>Account List</h3>
+
+    <hr>
     <ul>
         <% account.forEach(accounts=>{%>
+        <div class="container">
 
-        <li>
-            <a href="/accounts/<%= accounts._id %> ">
+            <li>
+                </br>
+                <span> Account Number :</span>
+                <a href="/accounts/<%= accounts._id %> ">
 
-                <%=accounts.accountNumber %>
-            </a>
-            <p><%= accounts.institution %></p>
-        </li>
+                    <%=accounts.accountNumber %>
+                </a>
+
+                <p><span>Bank :</span> <%= accounts.institution %></p>
+            </li>
+        </div>
+        <hr>
+        </br>
         <%}) %>
     </ul>
-    <a href="/accounts/new">New Account</a>
-    <a href="/">Back to home</a>
+    <!-- Content here -->
+    <a href="/accounts/new">
+        <button>New Account</button>
+    </a>
+    <a href="/transactions/new">
+        <button>New Transactions</button>
+    </a>
+
+    <nav class="navbar fixed-bottom">
+        <a class="navbar-brand" href="/">Back</a>
+    </nav>
+
 </body>
 
 </html>
