@@ -74,7 +74,7 @@ router.post('/login', async function (req, res) {
 
 router.delete('/logout', async function (req, res) {
     await req.session.destroy();
-    res.redirect('/login');
+    res.redirect('/');
 
 })
 

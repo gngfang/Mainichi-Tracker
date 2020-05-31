@@ -1,6 +1,7 @@
 body,h1 {font-family: "Raleway", sans-serif}
 body, html {height: 100%}
 
+/*  background */
 .bgimg {
 
   background-image: linear-gradient(to bottom right, blue, red);
@@ -12,6 +13,7 @@ body, html {height: 100%}
 .buttonBox {
     text-align: center;
   }
+  /* enter button */
 .enter{
     font-family: "Raleway", sans-serif;
     text-align: center;
@@ -23,3 +25,71 @@ body, html {height: 100%}
     
 }
 
+/* the div that contain the login and register */
+.loginDiv{
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end ;
+  background-color: #30324A;
+
+}
+/* the a link for login */
+.login{
+  text-decoration: none;
+  color: cornsilk;
+  margin: 10px 20px 10px 20px;
+  letter-spacing: 0.2em;
+  font-size: 18px;
+}
+.login:hover{
+  color:darkgray
+}
+
+/* register link */
+.register{
+  text-decoration: none;
+  color: cornsilk;
+  margin: 10px 20px 10px 20px;
+  letter-spacing: 0.2em;
+  font-size:18px
+}
+.register:hover{
+  color:darkgray
+}
+/* the div container the contain logout and username*/
+.logoutDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end ;
+  background-color: #30324A;
+}
+/* logout button */
+.logout{
+border-radius: 25px;
+text-align: center;
+margin: 10px 20px 10px 20px;
+letter-spacing: 0.2em;
+
+}
+
+.logout:hover{
+  background-color: darkgray;
+  color: cornsilk;
+}
+
+/* username with the p tag  */
+.username{
+  margin:10px 20px 10px 20px ;
+  letter-spacing: 0.2em;
+  font-weight: bolder;
+  font-size:20px;
+  color:cornsilk;
+}
+
+/* Mainichi*/
+.brand{
+
+letter-spacing: 0.2em;
+
+}
