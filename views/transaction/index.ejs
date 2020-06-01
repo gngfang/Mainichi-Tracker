@@ -9,23 +9,28 @@
 
 <body>
     <h1>Welcome to Transactions</h1>
-    <ul>
-        <% transaction.forEach(trans=>{ %>
+    <div>
 
-        <li>
-            <a href="#"><%= trans.date %></a>
+        <ul>
+            <% transaction.forEach(trans=>{ %>
 
+            <li>
+                <a href="#"> <%=trans.transactionType %> </a>
+                <p><%= trans.date %> </p>
+                <a href="/accounts/<%= trans.accounts._id %>"> <%=trans.accounts.accountNumber%></a>
+                <form action=" /transactions/<%=trans._id%>?_method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
 
-        </li>
+            <%}) %>
 
+        </ul>
+    </div>
+    <p>hello</p>
 
-        <%}) %>
-        <p>helo</p>
+    <a href="/transactions/new">new</a>
 
-        <a href="/transactions/new">new</a>
-
-
-    </ul>
 </body>
 
 </html>

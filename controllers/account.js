@@ -43,7 +43,7 @@ router.post('/', function (req, res) {
 
 // Show Route
 
-router.get('/:id', function (req, res) {
+/* router.get('/:id', function (req, res) {
     db.Account.findById(req.params.id, function (error, showAccount) {
         if (error) {
             res.send({ message: 'Internal Server Error' })
@@ -52,11 +52,23 @@ router.get('/:id', function (req, res) {
             res.render('account/show', context)
         }
     });
+}); */
+
+
+// Show Route Testing
+
+router.get('/:id', function (req, res) {
+    db.Account.findById(req.params.id).populate("transactions").exec(function (error, showAccount) {
+        if (error) {
+            res.send({ message: "Internal Server Error" })
+        } else {
+            const context = { account: showAccount };
+            res.render('account/show', context);
+        }
+
+    })
+
 });
-
-
-
-
 
 // Edit route
 

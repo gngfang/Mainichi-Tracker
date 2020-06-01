@@ -24,9 +24,12 @@
     <span>Account Description:</span>
     <p><%= account.description %> </p>
     <hr>
+    <h2>transactions</h2>
+    <!-- account.transactions.forEach(transaction=>
+        <p> transaction.date  </p>
+    }) -->
     <h3>Transactions Log</h3>
     <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar ">
-
 
         <table class="table table-striped table-dark table table-bordered table-striped mb-0">
             <thead>
@@ -37,36 +40,39 @@
                     <th scope="col">Description</th>
                 </tr>
             </thead>
+
+            <% account.transactions.forEach(transaction=>{%>
+
             <tbody>
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <th scope="row">5</th>
+                    <td><%= transaction.transactionAmount %> </td>
+                    <td><%= transaction.date %> </td>
+                    <td><%= transaction.transactionType %> </td>
 
                 </tr>
-                <tr>
+                <!--  <tr>
                     <th scope="row">2</th>
                     <td>Jacob</td>
                     <td>Thornton</td>
                     <td>@fat</td>
-
+                    
                 </tr>
                 <tr>
                     <th scope="row">3</th>
                     <td>Larry</td>
                     <td>the Bird</td>
                     <td>@twitter</td>
-
+                    
                 </tr>
                 <tr>
                     <th scope="row">4</th>
                     <td>Larry</td>
                     <td>the Bird</td>
                     <td>@twitter</td>
-                </tr>
-                </tr>
+                </tr> -->
             </tbody>
+            <%}) %>
         </table>
     </div> </br>
 
