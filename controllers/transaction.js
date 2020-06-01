@@ -26,7 +26,7 @@ router.get('/', function (req, res) {
     res.render('transaction/new');
 }); */
 
-// testing
+// New Route
 router.get('/new', function (req, res) {
     // search for accounts 
     db.Account.find({}, function (error, findAccount) {
@@ -65,7 +65,7 @@ router.get('/new', function (req, res) {
     });
 }); */
 
-/* Normal Create Route */
+/* Create Route */
 
 router.post('/', function (req, res) {
 
@@ -79,6 +79,12 @@ router.post('/', function (req, res) {
                     res.send({ messgae: "Internal Server Error" })
                 } else {
                     foundAccount.transactions.push(createdTransaction);
+                    if (createdTransaction.transactionType === "Deposit" || createdTransaction.transactionType === "ACH Credit") {
+                        foundAccount.balance += createdTransaction.transactionAmount;
+                    } else if (createdTransaction.transactionType === "Withdrawal" || createdTransaction.transactionType === "ACH Debit") {
+                        foundAccount.balance -= createdTransaction.transactionAmount;
+
+                    }
                     foundAccount.save();
                     res.redirect('/transactions');
                 }

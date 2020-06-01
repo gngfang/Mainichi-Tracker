@@ -19,15 +19,12 @@
     <span>Bank Name:</span>
     <p><%= account.institution %> </p>
     <span>Account Balance:</span>
-    <p><%= account.startingBalance%> </p>
+    <p><%= account.balance%> </p>
 
     <span>Account Description:</span>
     <p><%= account.description %> </p>
     <hr>
-    <h2>transactions</h2>
-    <!-- account.transactions.forEach(transaction=>
-        <p> transaction.date  </p>
-    }) -->
+
     <h3>Transactions Log</h3>
     <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar ">
 
@@ -51,26 +48,6 @@
                     <td><%= transaction.transactionType %> </td>
 
                 </tr>
-                <!--  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr> -->
             </tbody>
             <%}) %>
         </table>
