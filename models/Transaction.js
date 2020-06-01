@@ -9,7 +9,6 @@ const transactionSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Account"
     }
-    /* Will add account later */
 }, { timestamps: true });
 
 

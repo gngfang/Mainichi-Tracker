@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <title>Edit <%= account.accountNumber %> </title>
+    <title>Update <%= account.accountNumber %> </title>
 </head>
 
 <body>
 
-    <h1>Edit Account <%= account.accountNumber %></h1>
+    <h1>Update Account : <%= account.accountNumber %></h1>
 
     <hr>
     <form action="/accounts/<%= account._id%>?_method=PUT" method="POST">
@@ -23,7 +23,7 @@
         </div>
         <!-- Bank name section -->
         <div class="form-group col-md-2">
-            <label for="institution">Bank Name:</label>
+            <label for="institution">Institution:</label>
             <input type="text" name="institution" class="form-control" value=" <%= account.institution %>" required>
         </div>
         <!-- Account Type section -->
@@ -36,10 +36,10 @@
             </select> <br>
 
         </div>
+        <!-- Account Balance -->
         <div class="form-group col-md-2">
-            <label for="startingBalance">Balance:</label>
-            <input type="text" name="startingBalance" class="form-control" value="<%= account.startingBalance%>"
-                required>
+            <label for="balance">Balance:</label>
+            <input type="text" name="balance" class="form-control" value="<%= account.balance%>" required>
         </div>
 
         <!-- Account Purpose section -->
