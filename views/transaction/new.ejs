@@ -17,6 +17,16 @@
             <input type="text" name="accountNumber" class="form-control" placeholder="Ex: 479966389" required>
         </div> -->
         <!-- Transaction Type section -->
+
+        <div class="form-group col-md-2">
+            <label for="accounts">Account</label>
+            <select name="accounts" class="form-control" required>
+                <option selected>Choose...</option>
+                <% accounts.forEach(account=>{%>
+                <option value="<%= account._id%>"><%= account.accountNumber %> </option>
+                <%}) %>
+            </select> <br>
+        </div>
         <div class="form-group col-md-2">
             <label for="transactionType">Transaction Type</label>
             <select name="transactionType" class="form-control" required>

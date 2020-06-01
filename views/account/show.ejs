@@ -24,6 +24,11 @@
     <span>Account Description:</span>
     <p><%= account.description %> </p>
     <hr>
+    <h2>transactions</h2>
+    <%= account.transactions.length %>
+    <!-- account.transactions.forEach(transaction=>
+    <p> transaction.date  </p>
+    }) -->
     <h3>Transactions Log</h3>
     <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar ">
 
