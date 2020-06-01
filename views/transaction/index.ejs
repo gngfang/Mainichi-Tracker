@@ -13,11 +13,10 @@
 
         <ul>
             <% transaction.forEach(trans=>{ %>
-
             <li>
-                <a href="#"> <%=trans.transactionType %> </a>
+                <a href="/transactions/<%= trans._id %>"> <%=trans.transactionType %> </a>
                 <p><%= trans.date %> </p>
-                <a href="/accounts/<%= trans.accounts._id %>"> <%=trans.accounts.accountNumber%></a>
+                <a href=" /accounts/<%=trans.accounts._id %>"> <%=trans.accounts.accountNumber%></a>
                 <form action=" /transactions/<%=trans._id%>?_method=DELETE" method="POST">
                     <button type="submit">Delete</button>
                 </form>

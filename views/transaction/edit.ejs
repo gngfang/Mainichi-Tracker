@@ -10,19 +10,9 @@
 
 <body>
     <h1>Log New Transactions</h1>
-    <form action="/transactions" method="POST">
+    <form action="/transactions/<%= transaction._id %>?_method=PUT" method="POST">
 
-        <!-- Account number related section -->
 
-        <div class="form-group col-md-2">
-            <label for="accounts">Account</label>
-            <select name="accounts" class="form-control" required>
-                <option selected>Choose...</option>
-                <% accounts.forEach(account=>{%>
-                <option value="<%= account._id%>"><%= account.accountNumber %> </option>
-                <%}) %>
-            </select> <br>
-        </div>
 
         <!-- Transaction Type Section -->
         <div class="form-group col-md-2">

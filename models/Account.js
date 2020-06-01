@@ -9,8 +9,9 @@ const accountSchema = new mongoose.Schema({
     transactions: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Transaction"
+
     }]
-    /* Will add transaction later */
+
 });
 
 

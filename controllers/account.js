@@ -43,20 +43,6 @@ router.post('/', function (req, res) {
 
 // Show Route
 
-/* router.get('/:id', function (req, res) {
-    db.Account.findById(req.params.id, function (error, showAccount) {
-        if (error) {
-            res.send({ message: 'Internal Server Error' })
-        } else {
-            const context = { account: showAccount }
-            res.render('account/show', context)
-        }
-    });
-}); */
-
-
-// Show Route Testing
-
 router.get('/:id', function (req, res) {
     db.Account.findById(req.params.id).populate("transactions").exec(function (error, showAccount) {
         if (error) {
@@ -110,6 +96,21 @@ router.delete('/:id', function (req, res) {
             res.redirect('/accounts')
         }
     })
+})
+
+router.delete('/:id', async function (req, res) {
+
+    try {
+        const deletedAccount = await db.Account.findByIdAndDelete(req.params.id);
+        const deletedTransaction = await db.Transaction.remove({
+            transactions: deletedTransaction._id
+        });
+
+    } catch (error) {
+
+        res.send({ message: 'Internal Server Error' })
+    }
+
 })
 
 
