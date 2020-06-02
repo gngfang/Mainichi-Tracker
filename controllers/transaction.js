@@ -146,7 +146,22 @@ router.delete('/:id', function (req, res) {
         if (error) {
             res.send({ message: "Internal Server Error" });
         } else {
-            res.redirect('/accounts');
+            db.Account.findById(deletedTransactions.accounts, function (error, foundAccount) {
+                if (error) {
+                    console.log(error)
+                    res.send({ message: 'Internal Server Error' })
+                } else {
+                    if (deletedTransactions.transactionType === "Deposit" || deletedTransactions.transactionType === "ACH Credit" || deletedTransactions.transactionType === "Check Deposit") {
+                        foundAccount.balance -= deletedTransactions.transactionAmount
+                    } else if (deletedTransactions.transactionType === "Withdrawal" || deletedTransactions.transactionType === "ACH Debit" || deletedTransactions.transactionType === "Check Issuance") {
+
+                        foundAccount.balance += deletedTransactions.transactionAmount
+                    }
+                    deletedTransactions.save()
+                    foundAccount.save();
+                    res.redirect('/accounts');
+                }
+            })
         }
     });
 });
