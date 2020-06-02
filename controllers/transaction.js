@@ -24,7 +24,7 @@ router.get('/', function (req, res) {
 // New Route
 router.get('/new', function (req, res) {
     // search for accounts 
-    db.Account.find({}, function (error, findAccount) {
+    db.Account.find({ user: req.session.currentUser.id }, function (error, findAccount) {
         if (error) {
             res.send({ message: "Internal Sserver Error" })
         } else {
