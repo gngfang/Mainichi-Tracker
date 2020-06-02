@@ -146,7 +146,14 @@ router.delete('/:id', function (req, res) {
         if (error) {
             res.send({ message: "Internal Server Error" });
         } else {
-            res.redirect('/transactions');
+            /* db.Account.findById(deletedTransactions.accounts, function (error, foundAccount) {
+                if (error) {
+                    console.log(error)
+                    res.send({ message: 'Internal Server Error' })
+                } else {
+                    foundAccount.accounts.remove(deletedTransactions);
+                    foundAccount.save(); */
+            res.redirect('/accounts');
         }
     });
 });
