@@ -46,9 +46,7 @@ router.post('/', function (req, res) {
             res.send({ message: "Internal Server Error" })
         } else {
             db.Account.findById(createdTransaction.accounts, function (error, foundAccount) {
-                console.log(foundAccount.balance, req.body.transactionType)
                 if (error) {
-
                     res.send({ messgae: "Internal Server Error" })
                 } else {
                     foundAccount.transactions.push(createdTransaction);
@@ -68,9 +66,21 @@ router.post('/', function (req, res) {
     });
 });
 
+// show route
+/* router.get('/:id', function (req, res) {
+    db.Transaction.findById(req.params.id).populate('accounts').exec(function (error, showTransaction) {
+        if (error) {
+            res.send({ message: "Internal Server Error" })
+        } else {
+            const context = { transaction: showTransaction }
+            res.render('transaction/show', context);
+        }
+    });
+}); */
 
 
-// Show Route
+
+// Normal Show Route
 router.get('/:id', (req, res) => {
     db.Transaction.findById(req.params.id, function (error, foundTransaction) {
         if (error) {
@@ -83,7 +93,7 @@ router.get('/:id', (req, res) => {
 });
 
 
-// edit view Route
+// edit Route
 
 router.get('/:id/edit', function (req, res) {
     // search for accounts 
@@ -100,41 +110,43 @@ router.get('/:id/edit', function (req, res) {
 
 });
 
-// Update Route
 
-router.put('/:id/update', function (req, res) {
-    // finding the transaction id 
-    db.Transaction.findByIdAndUpdate(req.params.id, req.body, { new: true }, function (error, foundTransaction) {
+
+
+
+
+//Transaction Update Route
+
+router.put('/:id', function (req, res) {
+
+
+    db.Transaction.findById(req.params.id, function (error, findTransaction) {
         if (error) {
             console.log(error)
-            res.send({ message: 'Internal Server' })
+            res.send({ message: "Internal Server Error" })
         } else {
-            db.Account.findById(foundTransaction.accounts, function (error, foundAccount) {
-                console.log(foundAccount.balance, req.body.transactionType)
+            db.Account.findById(findTransaction.accounts, function (error, foundAccount) {
+                console.log(foundAccount.balance)
                 if (error) {
-
                     res.send({ messgae: "Internal Server Error" })
                 } else {
-
+                    // foundAccount.transactions.push(createdTransaction);
                     /* If else statement to reflect account balance */
-                    if (foundTransaction.transactionType === "Deposit" || foundTransaction.transactionType === "ACH Credit" || foundTransaction.transactionType === "Check Deposit") {
-                        foundAccount.balance += foundTransaction.transactionAmount;
-                    } else if (foundTransaction.transactionType === "Withdrawal" || foundTransaction.transactionType === "ACH Debit" || foundTransaction.transactionType === "Check Issuance") {
-                        foundAccount.balance -= foundTransaction.transactionAmount;
+                    if (findTransaction.transactionType === "Deposit" || findTransaction.transactionType === "ACH Credit" || findTransaction.transactionType === "Check Deposit") {
+                        foundAccount.balance += findTransaction.transactionAmount;
+                    } else if (findTransaction.transactionType === "Withdrawal" || findTransaction.transactionType === "ACH Debit" || findTransaction.transactionType === "Check Issuance") {
+
+                        foundAccount.balance -= findTransaction.transactionAmount;
 
                     }
-                    foundTransaction.save();
+                    findTransaction.save();
                     foundAccount.save();
                     res.redirect('/accounts');
                 }
             })
         }
     });
-
 });
-
-
-
 
 
 
