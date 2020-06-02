@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const transactionSchema = new mongoose.Schema({
     transactionType: { type: String, required: true },
-    transactionAmount: { type: Number, require: true },
+    transactionAmount: { type: Number, require: true, default: 0 },
     transactionDescription: { type: String },
     date: { type: Date },
     accounts: {
@@ -10,7 +10,6 @@ const transactionSchema = new mongoose.Schema({
         ref: "Account"
     }
 }, { timestamps: true });
-
 
 const Transaction = mongoose.model('Transaction', transactionSchema);
 module.exports = Transaction;

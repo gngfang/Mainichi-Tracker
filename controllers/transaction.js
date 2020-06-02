@@ -46,7 +46,9 @@ router.post('/', function (req, res) {
             res.send({ message: "Internal Server Error" })
         } else {
             db.Account.findById(createdTransaction.accounts, function (error, foundAccount) {
+                console.log(foundAccount.balance, req.body.transactionType)
                 if (error) {
+
                     res.send({ messgae: "Internal Server Error" })
                 } else {
                     foundAccount.transactions.push(createdTransaction);
@@ -66,21 +68,9 @@ router.post('/', function (req, res) {
     });
 });
 
-// show route
-/* router.get('/:id', function (req, res) {
-    db.Transaction.findById(req.params.id).populate('accounts').exec(function (error, showTransaction) {
-        if (error) {
-            res.send({ message: "Internal Server Error" })
-        } else {
-            const context = { transaction: showTransaction }
-            res.render('transaction/show', context);
-        }
-    });
-}); */
 
 
-
-// Normal Show Route
+// Show Route
 router.get('/:id', (req, res) => {
     db.Transaction.findById(req.params.id, function (error, foundTransaction) {
         if (error) {
@@ -93,7 +83,7 @@ router.get('/:id', (req, res) => {
 });
 
 
-// edit Route
+// edit view Route
 
 router.get('/:id/edit', function (req, res) {
     // search for accounts 
@@ -110,43 +100,41 @@ router.get('/:id/edit', function (req, res) {
 
 });
 
+// Update Route
 
-
-
-
-
-//Transaction Update Route
-
-router.put('/:id', function (req, res) {
-
-
-    db.Transaction.findById(req.params.id, function (error, findTransaction) {
+router.put('/:id/update', function (req, res) {
+    // finding the transaction id 
+    db.Transaction.findByIdAndUpdate(req.params.id, req.body, { new: true }, function (error, foundTransaction) {
         if (error) {
             console.log(error)
-            res.send({ message: "Internal Server Error" })
+            res.send({ message: 'Internal Server' })
         } else {
-            db.Account.findById(findTransaction.accounts, function (error, foundAccount) {
+            db.Account.findById(foundTransaction.accounts, function (error, foundAccount) {
+                console.log(foundAccount.balance, req.body.transactionType)
                 if (error) {
+
                     res.send({ messgae: "Internal Server Error" })
                 } else {
-                    // foundAccount.transactions.push(createdTransaction);
-                    /* If else statement to reflect account balance */
-                    if (findTransaction.transactionType === "Deposit" || findTransaction.transactionType === "ACH Credit" || findTransaction.transactionType === "Check Deposit") {
-                        if (foundAccount.transactions !== findTransaction.transactionAmount)
-                            foundAccount.balance += findTransaction.transactionAmount;
-                    } else if (findTransaction.transactionType === "Withdrawal" || findTransaction.transactionType === "ACH Debit" || findTransaction.transactionType === "Check Issuance") {
-                        foundAccount.balance -= findTransaction.transactionAmount;
 
+                    /* If else statement to reflect account balance */
+                    if (foundTransaction.transactionType === "Deposit" || foundTransaction.transactionType === "ACH Credit" || foundTransaction.transactionType === "Check Deposit") {
+                        foundAccount.balance += foundTransaction.transactionAmount;
+                    } else if (foundTransaction.transactionType === "Withdrawal" || foundTransaction.transactionType === "ACH Debit" || foundTransaction.transactionType === "Check Issuance") {
+                        foundAccount.balance -= foundTransaction.transactionAmount;
 
                     }
-                    findTransaction.save();
+                    foundTransaction.save();
                     foundAccount.save();
                     res.redirect('/accounts');
                 }
             })
         }
     });
+
 });
+
+
+
 
 
 
@@ -158,7 +146,7 @@ router.delete('/:id', function (req, res) {
         if (error) {
             res.send({ message: "Internal Server Error" });
         } else {
-            res.redirect('/transactions');
+            res.redirect('/accounts');
         }
     });
 });

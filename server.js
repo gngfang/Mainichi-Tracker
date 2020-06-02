@@ -13,7 +13,7 @@ const authRequired = require("./middleware/authRequired");
 const app = express();
 
 /* Port for server */
-const PORT = 1000;
+const PORT = 3100;
 
 /* MiddlesWares */
 

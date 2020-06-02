@@ -31,7 +31,9 @@
         <table class="table table-striped table-dark table table-bordered table-striped mb-0">
             <thead>
                 <tr>
-                    <th scope="col">Trans #</th>
+                    <th scope="col">Delete</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Transaction Type</th>
                     <th scope="col">Amount</th>
                     <th scope="col">Date</th>
                     <th scope="col">Description</th>
@@ -42,10 +44,15 @@
 
             <tbody>
                 <tr>
-                    <th scope="row">5</th>
+                    <form action=" /transactions/<%=transaction._id%>?_method=DELETE" method="POST">
+                        <th scope="row"> <button type="submit">Delete</button></th>
+                    </form>
+                    <th scope="row"> <a href="/transactions/<%= transaction._id %>/edit ">Edit</a> </th>
+                    <td><%= transaction.transactionType %> </td>
                     <td><%= transaction.transactionAmount %> </td>
                     <td><%= transaction.date %> </td>
-                    <td><%= transaction.transactionType %> </td>
+                    <td><%= transaction.transactionDescription%> </td>
+
 
                 </tr>
             </tbody>
