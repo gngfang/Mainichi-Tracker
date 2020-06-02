@@ -8,7 +8,7 @@ const db = require('../models');
 
 // index
 router.get('/', function (req, res) {
-    db.Transaction.find({}).populate('accounts').exec(function (error, allTransaction) {
+    db.Transaction.find({ user: req.session.currentUser.id }).populate('accounts').exec(function (error, allTransaction) {
         if (error) {
             res.send({ message: "Internal Server Error" })
         } else {
@@ -104,33 +104,45 @@ router.get('/:id/edit', function (req, res) {
 
 router.put('/:id/update', function (req, res) {
     // finding the transaction id 
-    db.Transaction.findByIdAndUpdate(req.params.id, req.body, { new: true }, function (error, foundTransaction) {
+    db.Transaction.findById(req.params.id, function (error, previousTransaction) {
         if (error) {
             console.log(error)
-            res.send({ message: 'Internal Server' })
-        } else {
-            db.Account.findById(foundTransaction.accounts, function (error, foundAccount) {
-                console.log(foundAccount.balance, req.body.transactionType)
-                if (error) {
+            res.send({ message: "Internal Server Error" })
+        } //else {
+        // db.Account.
 
-                    res.send({ messgae: "Internal Server Error" })
-                } else {
+        //}
+        db.Transaction.findByIdAndUpdate(req.params.id, req.body, { new: true }, function (error, foundTransaction) {
+            if (error) {
+                console.log(error)
+                res.send({ message: 'Internal Server' })
+            } else {
 
-                    /* If else statement to reflect account balance */
-                    if (foundTransaction.transactionType === "Deposit" || foundTransaction.transactionType === "ACH Credit" || foundTransaction.transactionType === "Check Deposit") {
-                        foundAccount.balance += foundTransaction.transactionAmount;
-                    } else if (foundTransaction.transactionType === "Withdrawal" || foundTransaction.transactionType === "ACH Debit" || foundTransaction.transactionType === "Check Issuance") {
-                        foundAccount.balance -= foundTransaction.transactionAmount;
+                db.Account.findById(foundTransaction.accounts, function (error, foundAccount) {
+                    console.log(foundAccount.balance, req.body.transactionType)
+                    if (error) {
 
+                        res.send({ messgae: "Internal Server Error" })
+                    } else {
+                        /* If else statement to reflect account balance */
+                        if (foundTransaction.transactionType === "Deposit" || foundTransaction.transactionType === "ACH Credit" || foundTransaction.transactionType === "Check Deposit") {
+                            foundAccount.balance -= previousTransaction.transactionAmount
+                            foundAccount.balance += foundTransaction.transactionAmount;
+                        } else if (foundTransaction.transactionType === "Withdrawal" || foundTransaction.transactionType === "ACH Debit" || foundTransaction.transactionType === "Check Issuance") {
+
+                            foundAccount.balance -= previousTransaction.transactionAmount;
+                            foundAccount.balance -= foundTransaction.transactionAmount;
+
+                        }
+                        foundTransaction.save();
+                        foundAccount.save();
+                        res.redirect('/accounts');
                     }
-                    foundTransaction.save();
-                    foundAccount.save();
-                    res.redirect('/accounts');
-                }
-            })
-        }
-    });
+                })
+            }
+        });
 
+    })
 });
 
 
