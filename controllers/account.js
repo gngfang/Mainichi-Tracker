@@ -88,30 +88,31 @@ router.put('/:id', function (req, res) {
 
 
 // Delete Route
+
 router.delete('/:id', function (req, res) {
     db.Account.findByIdAndDelete(req.params.id, function (error, deletedAccount) {
         if (error) {
+            console.log(error)
             res.send({ message: "Internal Server Error" })
         } else {
-            res.redirect('/accounts')
+            db.Transaction.remove({
+                // _id: {
+                //     $in: deletedAccount.transactions
+                // }
+                accounts: deletedAccount._id
+            }, function (error, deletedTransaction) {
+                if (error) {
+                    console.log(error)
+                    res.send({ message: 'Internal Server Error' })
+                } else {
+                    res.redirect('/accounts')
+                }
+            }
+            )
+
         }
-    })
-})
-
-router.delete('/:id', async function (req, res) {
-
-    try {
-        const deletedAccount = await db.Account.findByIdAndDelete(req.params.id);
-        const deletedTransaction = await db.Transaction.remove({
-            transactions: deletedTransaction._id
-        });
-
-    } catch (error) {
-
-        res.send({ message: 'Internal Server Error' })
-    }
-
-})
+    });
+});
 
 
 
