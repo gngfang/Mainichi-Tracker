@@ -65,7 +65,7 @@ router.post('/', function (req, res) {
 
                     }
                     foundAccount.save();
-                    res.redirect('/accounts');
+                    res.redirect(`/accounts/${foundAccount._id}`);
                 }
             })
         }
@@ -154,7 +154,7 @@ router.put('/:id/update', function (req, res) {
                     }
                     foundTransaction.save();
                     foundAccount.save();
-                    res.redirect('/accounts');
+                    res.redirect(`/accounts/${foundAccount._id}`);
                 }
             })
 
@@ -189,7 +189,7 @@ router.delete('/:id', function (req, res) {
                     }
                     deletedTransactions.save()
                     foundAccount.save();
-                    res.redirect('/accounts');
+                    res.redirect(`/accounts/${foundAccount._id}`);
                 }
             })
         }
