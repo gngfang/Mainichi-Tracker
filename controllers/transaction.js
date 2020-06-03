@@ -7,8 +7,9 @@ const db = require('../models');
 
 
 // index
-router.get('/', function (req, res) {
-    db.Transaction.find({}).populate('accounts').exec(function (error, allTransaction) {
+// dont need it, but commented out for future reference 
+/* router.get('/', function (req, res) {
+    db.Transaction.find({ user: req.session.currentUser.id }).populate('accounts').exec(function (error, allTransaction) {
         if (error) {
             res.send({ message: "Internal Server Error" })
         } else {
@@ -16,7 +17,7 @@ router.get('/', function (req, res) {
             res.render('transaction/index', context);
         }
     });
-});
+}); */
 
 
 
@@ -24,7 +25,7 @@ router.get('/', function (req, res) {
 // New Route
 router.get('/new', function (req, res) {
     // search for accounts 
-    db.Account.find({}, function (error, findAccount) {
+    db.Account.find({ user: req.session.currentUser.id }, function (error, findAccount) {
         if (error) {
             res.send({ message: "Internal Sserver Error" })
         } else {
@@ -40,16 +41,19 @@ router.get('/new', function (req, res) {
 
 router.post('/', function (req, res) {
 
+    if (req.body.transactionAmount < 0) {
+        return res.send({ message: 'Please input a valid amount' })
+    }
     db.Transaction.create(req.body, function (error, createdTransaction) {
         if (error) {
             console.log(error)
-            res.send({ message: "Internal Server Error" })
+            return res.send({ message: "Internal Server Error" })
         } else {
             db.Account.findById(createdTransaction.accounts, function (error, foundAccount) {
                 console.log(foundAccount.balance, req.body.transactionType)
                 if (error) {
 
-                    res.send({ messgae: "Internal Server Error" })
+                    return res.send({ messgae: "Internal Server Error" })
                 } else {
                     foundAccount.transactions.push(createdTransaction);
 
@@ -61,7 +65,7 @@ router.post('/', function (req, res) {
 
                     }
                     foundAccount.save();
-                    res.redirect('/transactions');
+                    res.redirect(`/accounts/${foundAccount._id}`);
                 }
             })
         }
@@ -103,34 +107,60 @@ router.get('/:id/edit', function (req, res) {
 // Update Route
 
 router.put('/:id/update', function (req, res) {
-    // finding the transaction id 
-    db.Transaction.findByIdAndUpdate(req.params.id, req.body, { new: true }, function (error, foundTransaction) {
+    // finding the transaction id for the previous transaction before update
+    db.Transaction.findById(req.params.id, function (error, previousTransaction) {
         if (error) {
             console.log(error)
-            res.send({ message: 'Internal Server' })
-        } else {
+            return res.send({ message: "Internal Server Error" })
+        }
+
+        db.Transaction.findByIdAndUpdate(req.params.id, req.body, { new: true }, function (error, foundTransaction) {
+            if (error) {
+                console.log(error)
+                return res.send({ message: 'Internal Server' })
+            }
+
             db.Account.findById(foundTransaction.accounts, function (error, foundAccount) {
                 console.log(foundAccount.balance, req.body.transactionType)
                 if (error) {
 
                     res.send({ messgae: "Internal Server Error" })
                 } else {
-
                     /* If else statement to reflect account balance */
                     if (foundTransaction.transactionType === "Deposit" || foundTransaction.transactionType === "ACH Credit" || foundTransaction.transactionType === "Check Deposit") {
-                        foundAccount.balance += foundTransaction.transactionAmount;
-                    } else if (foundTransaction.transactionType === "Withdrawal" || foundTransaction.transactionType === "ACH Debit" || foundTransaction.transactionType === "Check Issuance") {
-                        foundAccount.balance -= foundTransaction.transactionAmount;
+                        // to override the previous account balance 
+                        if (previousTransaction.transactionType === "Withdrawal" || previousTransaction.transactionType === "ACH Debit" || previousTransaction.transactionType === "Check Issuance") {
+                            foundAccount.balance += previousTransaction.transactionAmount
+                            foundAccount.balance += foundTransaction.transactionAmount;
 
+
+                        } else {
+
+                            foundAccount.balance -= previousTransaction.transactionAmount
+                            foundAccount.balance += foundTransaction.transactionAmount;
+                        }
+                    } else if (foundTransaction.transactionType === "Withdrawal" || foundTransaction.transactionType === "ACH Debit" || foundTransaction.transactionType === "Check Issuance") {
+
+                        if (previousTransaction.transactionType === "Deposit" || previousTransaction.transactionType === "ACH Credit" || previousTransaction.transactionType === "Check Deposit") {
+
+                            foundAccount.balance -= previousTransaction.transactionAmount
+                            foundAccount.balance -= foundTransaction.transactionAmount;
+
+                        } else {
+
+                            foundAccount.balance += previousTransaction.transactionAmount
+                            foundAccount.balance -= foundTransaction.transactionAmount;
+                        }
                     }
                     foundTransaction.save();
                     foundAccount.save();
-                    res.redirect('/accounts');
+                    res.redirect(`/accounts/${foundAccount._id}`);
                 }
             })
-        }
-    });
 
+        });
+
+    })
 });
 
 
@@ -159,7 +189,7 @@ router.delete('/:id', function (req, res) {
                     }
                     deletedTransactions.save()
                     foundAccount.save();
-                    res.redirect('/accounts');
+                    res.redirect(`/accounts/${foundAccount._id}`);
                 }
             })
         }

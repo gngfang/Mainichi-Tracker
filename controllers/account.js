@@ -9,7 +9,7 @@ const db = require('../models');
 // Index Route
 
 router.get('/', function (req, res) {
-    db.Account.find({}, function (error, allAccount) {
+    db.Account.find({ user: req.session.currentUser.id }, function (error, allAccount) {
         if (error) {
             res.send({ message: "Internal Server Error" })
         } else {
@@ -30,7 +30,15 @@ router.get('/new', function (req, res) {
 // Create Route
 
 router.post('/', function (req, res) {
-    db.Account.create(req.body, function (error, createdAccount) {
+    const accounts = {
+        accountNumber: req.body.accountNumber,
+        accountType: req.body.accountType,
+        institution: req.body.institution,
+        balance: req.body.balance,
+        description: req.body.description,
+        user: req.session.currentUser.id
+    }
+    db.Account.create(accounts, function (error, createdAccount) {
         if (error) {
             res.send({ message: "Internal Server Error" })
         } else {
@@ -44,7 +52,7 @@ router.post('/', function (req, res) {
 // Show Route
 
 router.get('/:id', function (req, res) {
-    db.Account.findById(req.params.id).populate("transactions").exec(function (error, showAccount) {
+    db.Account.findById(req.params.id).populate("transactions user").exec(function (error, showAccount) {
         if (error) {
             res.send({ message: "Internal Server Error" })
         } else {
