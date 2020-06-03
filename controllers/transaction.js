@@ -7,7 +7,8 @@ const db = require('../models');
 
 
 // index
-router.get('/', function (req, res) {
+// dont need it
+/* router.get('/', function (req, res) {
     db.Transaction.find({ user: req.session.currentUser.id }).populate('accounts').exec(function (error, allTransaction) {
         if (error) {
             res.send({ message: "Internal Server Error" })
@@ -16,7 +17,7 @@ router.get('/', function (req, res) {
             res.render('transaction/index', context);
         }
     });
-});
+}); */
 
 
 
@@ -39,12 +40,7 @@ router.get('/new', function (req, res) {
 /* Create Route */
 
 router.post('/', function (req, res) {
-    /*  const newTransaction = {
-         transactionType: req.body.transactionType,
-         transactionAmount: req.body.transactionAmount,
-         transactionDescription: req.body.transactionDescription,
-         date: req.body.date
-     } */
+
     if (req.body.transactionAmount < 0) {
         return res.send({ message: 'Please input a valid amount' })
     }
@@ -111,7 +107,7 @@ router.get('/:id/edit', function (req, res) {
 // Update Route
 
 router.put('/:id/update', function (req, res) {
-    // finding the transaction id 
+    // finding the transaction id for the previous transaction before update
     db.Transaction.findById(req.params.id, function (error, previousTransaction) {
         if (error) {
             console.log(error)
@@ -132,7 +128,7 @@ router.put('/:id/update', function (req, res) {
                 } else {
                     /* If else statement to reflect account balance */
                     if (foundTransaction.transactionType === "Deposit" || foundTransaction.transactionType === "ACH Credit" || foundTransaction.transactionType === "Check Deposit") {
-
+                        // to override the previous account balance 
                         if (previousTransaction.transactionType === "Withdrawal" || previousTransaction.transactionType === "ACH Debit" || previousTransaction.transactionType === "Check Issuance") {
                             foundAccount.balance += previousTransaction.transactionAmount
                             foundAccount.balance += foundTransaction.transactionAmount;
