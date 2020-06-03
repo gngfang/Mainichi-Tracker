@@ -31,7 +31,8 @@
         <!-- Transaction Amount section -->
         <div class="form-group col-md-2">
             <label for="transactionAmount">Amount</label>
-            <input type="number" name="transactionAmount" class="form-control" placeholder="Ex: 100,520 ..." required>
+            <input type="number" name="transactionAmount" class="form-control" placeholder="Ex: 100,520 ..."
+                value="<%= transaction.transactionAmount %>" required>
         </div>
 
         <!-- Transactions Date -->
@@ -43,12 +44,13 @@
         <!-- Transaction Description -->
         <div class="form-group col-md-2">
             <label for="transactionDescription">Description:</label>
-            <textarea name="transactionDescription" class="form-control" cols="30" rows="1"> </textarea>
+            <textarea name="transactionDescription" class="form-control" cols="30"
+                rows="1"> <%=transaction.transactionDescription%></textarea>
         </div> </br>
 
         <!-- The create button section -->
         <div class="form-group col-md-2">
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">Update</button>
         </div>
     </form>
 

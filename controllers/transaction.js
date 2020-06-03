@@ -7,7 +7,7 @@ const db = require('../models');
 
 
 // index
-// dont need it
+// dont need it, but commented out for future reference 
 /* router.get('/', function (req, res) {
     db.Transaction.find({ user: req.session.currentUser.id }).populate('accounts').exec(function (error, allTransaction) {
         if (error) {
