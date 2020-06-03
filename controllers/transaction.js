@@ -39,17 +39,25 @@ router.get('/new', function (req, res) {
 /* Create Route */
 
 router.post('/', function (req, res) {
-
+    /*  const newTransaction = {
+         transactionType: req.body.transactionType,
+         transactionAmount: req.body.transactionAmount,
+         transactionDescription: req.body.transactionDescription,
+         date: req.body.date
+     } */
+    if (req.body.transactionAmount < 0) {
+        return res.send({ message: 'Please input a valid amount' })
+    }
     db.Transaction.create(req.body, function (error, createdTransaction) {
         if (error) {
             console.log(error)
-            res.send({ message: "Internal Server Error" })
+            return res.send({ message: "Internal Server Error" })
         } else {
             db.Account.findById(createdTransaction.accounts, function (error, foundAccount) {
                 console.log(foundAccount.balance, req.body.transactionType)
                 if (error) {
 
-                    res.send({ messgae: "Internal Server Error" })
+                    return res.send({ messgae: "Internal Server Error" })
                 } else {
                     foundAccount.transactions.push(createdTransaction);
 
@@ -61,7 +69,7 @@ router.post('/', function (req, res) {
 
                     }
                     foundAccount.save();
-                    res.redirect('/transactions');
+                    res.redirect('/accounts');
                 }
             })
         }
@@ -107,39 +115,53 @@ router.put('/:id/update', function (req, res) {
     db.Transaction.findById(req.params.id, function (error, previousTransaction) {
         if (error) {
             console.log(error)
-            res.send({ message: "Internal Server Error" })
-        } //else {
-        // db.Account.
+            return res.send({ message: "Internal Server Error" })
+        }
 
-        //}
         db.Transaction.findByIdAndUpdate(req.params.id, req.body, { new: true }, function (error, foundTransaction) {
             if (error) {
                 console.log(error)
-                res.send({ message: 'Internal Server' })
-            } else {
+                return res.send({ message: 'Internal Server' })
+            }
 
-                db.Account.findById(foundTransaction.accounts, function (error, foundAccount) {
-                    console.log(foundAccount.balance, req.body.transactionType)
-                    if (error) {
+            db.Account.findById(foundTransaction.accounts, function (error, foundAccount) {
+                console.log(foundAccount.balance, req.body.transactionType)
+                if (error) {
 
-                        res.send({ messgae: "Internal Server Error" })
-                    } else {
-                        /* If else statement to reflect account balance */
-                        if (foundTransaction.transactionType === "Deposit" || foundTransaction.transactionType === "ACH Credit" || foundTransaction.transactionType === "Check Deposit") {
+                    res.send({ messgae: "Internal Server Error" })
+                } else {
+                    /* If else statement to reflect account balance */
+                    if (foundTransaction.transactionType === "Deposit" || foundTransaction.transactionType === "ACH Credit" || foundTransaction.transactionType === "Check Deposit") {
+
+                        if (previousTransaction.transactionType === "Withdrawal" || previousTransaction.transactionType === "ACH Debit" || previousTransaction.transactionType === "Check Issuance") {
+                            foundAccount.balance += previousTransaction.transactionAmount
+                            foundAccount.balance += foundTransaction.transactionAmount;
+
+
+                        } else {
+
                             foundAccount.balance -= previousTransaction.transactionAmount
                             foundAccount.balance += foundTransaction.transactionAmount;
-                        } else if (foundTransaction.transactionType === "Withdrawal" || foundTransaction.transactionType === "ACH Debit" || foundTransaction.transactionType === "Check Issuance") {
+                        }
+                    } else if (foundTransaction.transactionType === "Withdrawal" || foundTransaction.transactionType === "ACH Debit" || foundTransaction.transactionType === "Check Issuance") {
 
-                            foundAccount.balance -= previousTransaction.transactionAmount;
+                        if (previousTransaction.transactionType === "Deposit" || previousTransaction.transactionType === "ACH Credit" || previousTransaction.transactionType === "Check Deposit") {
+
+                            foundAccount.balance -= previousTransaction.transactionAmount
                             foundAccount.balance -= foundTransaction.transactionAmount;
 
+                        } else {
+
+                            foundAccount.balance += previousTransaction.transactionAmount
+                            foundAccount.balance -= foundTransaction.transactionAmount;
                         }
-                        foundTransaction.save();
-                        foundAccount.save();
-                        res.redirect('/accounts');
                     }
-                })
-            }
+                    foundTransaction.save();
+                    foundAccount.save();
+                    res.redirect('/accounts');
+                }
+            })
+
         });
 
     })
