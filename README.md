@@ -17,18 +17,22 @@ Mainichi is a account register that user can create different bank account and a
 
 
 ## WireFrames
-Home Route
+
+### Home Route
 ![](WireFrame/homeRoute.png)
-All Account List
+### All Account List
 ![](WireFrame/indexRoute.png)
-Specifif Account Show Route
+### Specific Account Show Route
 ![](WireFrame/showRoute.png)
- Edit Acct Info route
+### Edit Acct Info route
 ![](WireFrame/editRoute.png)
- Create acct route
-<!-- ![](WireFrame/homeRoute.png)
-![](WireFrame/homeRoute.png)
-![](WireFrame/homeRoute.png)
-![](WireFrame/homeRoute.png)
-![](WireFrame/homeRoute.png)
-![](WireFrame/homeRoute.png) -->
+### Create acct route
+![](WireFrame/createRoute.png)
+### Add New Transaction Route
+![](WireFrame/newTransaction.png)
+### Update Transaction Route
+![](WireFrame/editTransaction.png)
+### Register Route
+![](WireFrame/register.png)
+### Login Route
+![](WireFrame/login.png)
