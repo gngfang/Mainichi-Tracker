@@ -13,7 +13,18 @@
 <body>
 
     <h1>Welcome to Account Page</h1>
+
+    <% if(user){%>
+    <div class="logoutDiv">
+
+        <p class="username"><%= user.username %> </p>
+        <form action="/logout?_method=DELETE" method="POST" class="logoutForm">
+            <input type="submit" value="Logout" class="logout">
+        </form>
+    </div>
+
     <h3>Account List</h3>
+
 
     <hr>
     <ul>
@@ -28,7 +39,9 @@
                     <%=accounts.accountNumber %>
                 </a>
 
+                <p><span>Balance:</span> $ <%= accounts.balance %></p>
                 <p><span>Bank :</span> <%= accounts.institution %></p>
+
             </li>
         </div>
         <hr>

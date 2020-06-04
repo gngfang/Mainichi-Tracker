@@ -63,3 +63,9 @@ a{
 a:hover{
     color: darkgray;
 }
+
+.logout{
+
+    color: black;
+    background-color: blueviolet;
+}
