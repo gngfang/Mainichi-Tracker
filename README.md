@@ -1,30 +1,31 @@
-#Mainichi Tracker
+
+# Mainichi Tracker
 
 Mainichi is a account register that user can create different bank account and adding transactions to the specific account. It help user to be able to keep track on what they have spent on and is an extra check to compare with bank statements.
 
 
-##Dependecies
+## Dependecies
 
--express
--body-parser
--mongoose
--ejs
--method-override
--connect-mongo
--express-session
--bcrypt
+- express
+- body-parser
+- mongoose
+- ejs
+- method-override
+- connect-mongo
+- express-session
+- bcrypt
 
 
-##WireFrames
--Home Route
+## WireFrames
+- Home Route
 ![](WireFrame/homeRoute.png)
--All Account List
+- All Account List
 ![](WireFrame/indexRoute.png)
--Specifif Account Show Route
+- Specifif Account Show Route
 ![](WireFrame/showRoute.png)
--Edit Acct Info route
+- Edit Acct Info route
 ![](WireFrame/editRoute.png)
--Create acct route
+- Create acct route
 <!-- ![](WireFrame/homeRoute.png)
 ![](WireFrame/homeRoute.png)
 ![](WireFrame/homeRoute.png)
