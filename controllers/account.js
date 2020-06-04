@@ -19,7 +19,6 @@ router.get('/', function (req, res) {
     });
 });
 
-
 // New Route
 
 router.get('/new', function (req, res) {
@@ -52,7 +51,7 @@ router.post('/', function (req, res) {
 // Show Route
 
 router.get('/:id', function (req, res) {
-    db.Account.findById(req.params.id).populate("transactions user").exec(function (error, showAccount) {
+    db.Account.findById(req.params.id).populate("transactions").exec(function (error, showAccount) {
         if (error) {
             res.send({ message: "Internal Server Error" })
         } else {

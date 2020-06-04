@@ -74,17 +74,18 @@ router.post('/', function (req, res) {
 
 
 
-// Show Route
-router.get('/:id', (req, res) => {
-    db.Transaction.findById(req.params.id, function (error, foundTransaction) {
-        if (error) {
-            res.send({ message: "Internal Server Error" })
-        } else {
-            const context = { transaction: foundTransaction }
-            res.render('transaction/show', context);
-        }
-    });
-});
+// Show Route no need it anymore. but will keep as record
+// router.get('/:id', function (req, res) {
+//     db.Transaction.findById(req.params.id, function (error, foundTransaction) {
+//         if (error) {
+//             res.send({ message: "Internal Server Error" })
+//         } else {
+//             const context = { transaction: foundTransaction }
+//             res.render('transaction/show', context);
+//         }
+//     });
+// });
+
 
 
 // edit view Route
