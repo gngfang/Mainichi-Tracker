@@ -1,5 +1,5 @@
 body{
-    font-family: "Raleway", sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 span{
 font-weight: bolder;
@@ -50,4 +50,3 @@ a{
 a:hover{
     color: darkgray;
 }
-

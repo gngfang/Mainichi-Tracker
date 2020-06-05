@@ -1,6 +1,6 @@
 /* Connecting mongo */
 const mongoose = require('mongoose');
-const connectionString = "mongodb://localhost:27017/tracker";
+const connectionString = "mongodb+srv://xscullark:bluetee2@cluster1-qxtmc.mongodb.net/<dbname>?retryWrites=true&w=majority";
 
 mongoose.connect(connectionString, {
 
