@@ -59,6 +59,8 @@ app.use('/accounts', authRequired, controllers.account);
 /* Transaction Route */
 app.use('/transactions', authRequired, controllers.transaction);
 
+
+
 /* Server Bind */
 
 app.listen(PORT, function () {

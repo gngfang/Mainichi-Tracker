@@ -3,7 +3,9 @@ body{
 }
 .container{
     color: cornsilk;
-    background-color: #30324A;
+    background-color: rgb(23,215,223);
+    background: linear-gradient(106deg, rgba(23,215,223,1) 0%, rgba(182,54,217,1) 35%, rgba(0,53,255,1) 100%);
+    };
     width: 400px;
     height:100px;
     border-radius: 25px;
@@ -52,7 +54,9 @@ button{
 }
 
 nav{
-    background-color:#30324A ;
+    background-color: rgb(23,215,223);
+    background: linear-gradient(106deg, rgba(23,215,223,1) 0%, rgba(182,54,217,1) 35%, rgba(0,53,255,1) 100%);
+    };
     color:cornsilk;
 }
 
