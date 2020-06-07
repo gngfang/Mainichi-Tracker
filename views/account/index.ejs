@@ -5,25 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/account/index.css">
     <title>Account</title>
 </head>
 
 <body>
 
-    <h1>Welcome to Account Page</h1>
+    <h1>Accounts Page</h1>
 
-    <% if(user){%>
-    <div class="logoutDiv">
-
-        <p class="username"><%= user.username %> </p>
-        <form action="/logout?_method=DELETE" method="POST" class="logoutForm">
-            <input type="submit" value="Logout" class="logout">
-        </form>
-    </div>
-
-    <h3>Account List</h3>
+     <h3>Account List</h3>
 
 
     <hr>
@@ -32,7 +23,8 @@
         <div class="container">
 
             <li>
-                </br>
+   
+       </br>
                 <span> Account Number :</span>
                 <a href="/accounts/<%= accounts._id %> ">
 

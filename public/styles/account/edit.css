@@ -1,30 +1,23 @@
-body{
+h1{
     font-family: 'Quicksand', sans-serif;
-    background-image:none;
-    height: 100vh;
-    color: blue
+    background: linear-gradient(106deg, rgba(23,215,223,1) 0%, rgba(216,139,246,1) 28%, rgba(0,53,255,1) 100%);
+    color: cornsilk;
+    text-align: center;
+}
+
+.form{
+    text-align: center;
+    margin-right: -80px;
+    color: blue;
+    margin-left: 500px;
+    margin-right: -445px;
     
 }
 
-h1 {
+
+.formcontrol{
     text-align: center;
-    background: rgb(23,215,223);
-    background: linear-gradient(106deg, rgba(23,215,223,1) 0%, rgba(182,54,217,1) 35%, rgba(0,53,255,1) 100%);
-    color: cornsilk;
-    }
-
-.wrapper{
-   text-align: center;
-   margin-left: 550px;
-   margin-right: -475px;
 }
-
-      
-     
-
-
-
-
 
 button{
     box-shadow: 0px 10px 14px -7px #332773;
@@ -34,12 +27,13 @@ button{
     display:inline-block;
     cursor:pointer;
     color: cornsilk;
-    font-family:Times New Roman;
+    font-family: 'Quicksand', sans-serif;
     font-size:20px;
     font-weight:bold;
-    padding:13px 32px;
+    padding: 13px 32px;
     text-decoration:none;
     text-shadow:0px 1px 0px #3e488a;
+    letter-spacing: 0.1em;
 }
 .button:hover {
     background:linear-gradient(to bottom, #2517e8 5%, #d43fd4 100%);
@@ -49,4 +43,8 @@ button{
     position:relative;
     top:1px;
 }
- 
+
+        
+button:hover{
+color: darkgray;
+}

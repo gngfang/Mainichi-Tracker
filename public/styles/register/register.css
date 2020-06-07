@@ -1,6 +1,6 @@
 body{
     text-align: center;
-    font-family: 'Lora', serif;
+    font-family: 'Quicksand', sans-serif;
     letter-spacing: 0.3em;
     height: 100vh;
 }
@@ -14,6 +14,7 @@ div{
     color:#30324A;
     width: auto;
     margin: auto;
+    padding-bottom: 20px;
 }
 
 label{
@@ -59,7 +60,7 @@ button{
     display:inline-block;
     cursor:pointer;
     color: cornsilk;
-    font-family:Times New Roman;
+    font-family: 'Quicksand', sans-serif;
     font-size:20px;
     font-weight:bold;
     padding:13px 32px;
