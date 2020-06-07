@@ -13,7 +13,7 @@ const authRequired = require("./middleware/authRequired");
 const app = express();
 
 /* Port for server */
-const PORT = 3100;
+const PORT = 4000;
 
 /* MiddlesWares */
 
@@ -27,7 +27,7 @@ app.set('view engine', 'ejs');
 /* Session Configuration */
 app.use(session({
     store: new MongoStore({
-        url: "mongodb://localhost:27017/tracker"
+        url: "mongodb+srv://xscullark:bluetee2@cluster1-qxtmc.mongodb.net/<dbname>?retryWrites=true&w=majority"
 
     }),
     secret: "Mainichi means everyday",
@@ -58,6 +58,8 @@ app.use('/accounts', authRequired, controllers.account);
 
 /* Transaction Route */
 app.use('/transactions', authRequired, controllers.transaction);
+
+
 
 /* Server Bind */
 

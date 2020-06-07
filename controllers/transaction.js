@@ -202,8 +202,5 @@ router.delete('/:id', function (req, res) {
 
 
 
-
-
-
 /* Exporting out */
 module.exports = router

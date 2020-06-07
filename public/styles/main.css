@@ -1,95 +1,201 @@
-body,h1 {font-family: "Raleway", sans-serif}
-body, html {height: 100%}
-
-/*  background */
-.bgimg {
-
-  background-image: linear-gradient(to bottom right, blue, red);
-  min-height: 100%;
-  background-position: center;
-  background-size: cover;
+*{
+  font-family: 'Quicksand', sans-serif;
+  letter-spacing: 0.1em;
 }
-
-.buttonBox {
-    text-align: center;
+  
+  .wrapper {
+  width: 1300px;
+  max-width: 90%;
+  margin: 0 auto;
   }
-  /* enter button */
-.enter{
-    font-family: "Raleway", sans-serif;
-    text-align: center;
-    border-radius: 25px;
-    width:100px;
-    height: 30px;
-    background-image: linear-gradient(to bottom right, grey, white); 
+  
+  /* - - - - - HEADER STYLES - - - - - */
+  
+  header div.menu-button {
+  display: none;
+  }
+  
+  header {
+  width: 100%;
+  height: 60px;
+  padding: 2rem 0;
+  }
+  
+  
+  
+  header nav {
+  float: right;
+  margin:0;
+  }
+  
+  header nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 700;
+  margin-left: 2rem;
+  }
+  
+  #menu {
+  display: none;
+  }
+  
+  /* - - - - - BANNER STYLES - - - - - */
+  
+  #banner {
+  background-image:
+  linear-gradient(to right bottom,
+  rgba(76, 216, 255, 0.4),
+  rgba(30, 108, 217, 0.4)),
+  url('https://images.unsplash.com/photo-1485368647436-ff0fb9990605?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4235040dd51e1a04bda747f28d92f9e6&auto=format&fit=crop&w=1349&q=80');
+  }
+  
+ .content {
+  padding: 4rem 0 12rem 0;
+  }
+  
+ .content h1.title, .content h2.sub_title {
+  color: #ffffff;
+  text-align: center;
+  }
+  
+   .content .title {
+  font-size: 3.5rem;
+  margin: 0;
+  }
+  
+ .content .sub_title{
+  font-weight: 400;
+  font-size: 1.35rem;
+  width: 500px;
+  line-height: 1.75;
+  margin: 0 auto 2rem auto;
+  }
+  
+  .button {
+  border: none;
+  outline: none;
+  border-radius: 2rem;
+  padding: .6rem 3.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  }
 
+  .sm-button {
+    padding: .3rem 1.2rem;
+    }
     
-}
-
-/* the div that contain the login and register */
-.loginDiv{
+   .content .button_wrapper {
+    text-align: center;
+    }
+    
+   .content .button_wrapper .button {
+    margin: 0 .75rem;
+    }
+    
+    .button_highlight {
+    background: blue;
+    }
+    
+    .button_secondary {
+    background: rgba(250,250,250,0.35);
+    }
+    
+  
+ .content .see_more {
+  position: absolute;
+  left: 50%;
+  margin-left: -15px;
+  bottom: 45%;
+  cursor: pointer;
+  }
+  
+  /* - - - - - SERVICES STYLES - - - - - */
+  
+  #services {
+  background: #f2f1f8;
+  padding: 14rem 0 6.5rem 0;
+  position: relative;
+  }
+  
+  #services ul{
+  float: left;
+  background: #fff;
+  width: 26%;
+  margin: -17rem 1% 0 1%;
+  padding: 3rem 2.5%;
+  text-align: center;
+  position: relative;
+  -webkit-box-shadow: 0px 0px 57px 0px rgba(4,6,9,0.25);
+  -moz-box-shadow: 0px 0px 57px 0px rgba(4,6,9,0.25);
+  box-shadow: 0px 0px 57px 0px rgba(4,6,9,0.25);
+  border-radius: .35rem;
+  box-shadow: 14px -7px 5px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 14px -7px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 14px -7px 5px 0px rgba(0,0,0,0.75);
+  }
+  
+  #services ul li {
+  list-style: none;
+  }
+  
+  .service_title {
+  font-size: 1.5rem;
+  color: #3f3d4e;
+  }
+  
+ .branding::after {
+  content: " ";
+  position: absolute;
+  left: 50%;
+  bottom: -100px;
+  height: 100px;
+  border-left: 2px solid #e2e0ee;
+  }
+  
+   .selling::after {
+  content: " ";
+  position: absolute;
+  left: 50%;
+  bottom: -50px;
   height: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end ;
-  background-color: #30324A;
-
-}
-/* the a link for login */
+  border-left: 2px solid #e2e0ee;
+  }
+  
+   .offer:after {
+  content: " ";
+  position: absolute;
+  left: 50%;
+  bottom: -50px;
+  height: 50px;
+  border-left: 2px solid #e2e0ee;
+  }
+  
+  /* the a link for login */
 .login{
   text-decoration: none;
-  color: cornsilk;
+  color: white;
   margin: 10px 20px 10px 20px;
   letter-spacing: 0.2em;
   font-size: 18px;
-}
-.login:hover{
-  color:darkgray
-}
+  }
 
-/* register link */
-.register{
+.login:hover{
+ color: darkgray;
+}
+    
+    /* register link */
+  .register{
   text-decoration: none;
-  color: cornsilk;
+  color: white;
   margin: 10px 20px 10px 20px;
   letter-spacing: 0.2em;
   font-size:18px
-}
-.register:hover{
-  color:darkgray
-}
-/* the div container the contain logout and username*/
-.logoutDiv{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end ;
-  background-color: #30324A;
-}
-/* logout button */
-.logout{
-border-radius: 25px;
-text-align: center;
-margin: 10px 20px 10px 20px;
-letter-spacing: 0.2em;
-
-}
-
-.logout:hover{
-  background-color: darkgray;
-  color: cornsilk;
-}
-
-/* username with the p tag  */
-.username{
-  margin:10px 20px 10px 20px ;
-  letter-spacing: 0.2em;
-  font-weight: bolder;
-  font-size:20px;
-  color:cornsilk;
-}
-
-/* Mainichi*/
-.brand{
-
-letter-spacing: 0.2em;
-
-}
+  }
+  
+  .register:hover {
+   color: darkgray;
+  }
+ 
+  

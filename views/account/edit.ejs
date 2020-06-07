@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap">
+    <link rel="stylesheet" href="/styles/account/edit.css">
     <title>Update <%= account.accountNumber %> </title>
 </head>
 
@@ -14,8 +15,10 @@
     <h1>Update Account : <%= account.accountNumber %></h1>
 
     <hr>
+
     <form action="/accounts/<%= account._id%>?_method=PUT" method="POST">
         <!-- Account Number section -->
+    <div class="form">
         <div class="form-group col-md-2">
             <label for="accountNumber">Account Number</label>
             <input type="text" name="accountNumber" class="form-control" value=" <%= account.accountNumber %>" required>
@@ -52,6 +55,7 @@
         <div class="form-group col-md-2">
             <button type="submit" class="btn btn-primary">Update</button>
         </div>
+    </div>
     </form>
 
 

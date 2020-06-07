@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/account/new.css">
     <title>New Account</title>
 </head>
 
 <body>
-    <h1>New Account</h1>
-    <hr>
+    <h1>Add New Account</h1>
+    <br>
+    <div class="wrapper">
     <form action="/accounts" method="POST">
         <!-- Account Number section -->
         <div class="form-group col-md-2">
@@ -22,7 +23,7 @@
         <!-- Bank name section -->
         <div class="form-group col-md-2">
             <label for="institution">Bank Name:</label>
-            <input type="text" name="institution" class="form-control" placeholder="Ex: Chase, Bank of America..."
+            <input type="text" name="institution" class="form-control" placeholder="Ex: Chase Bank.."
                 required>
         </div>
         <!-- Account Type section -->
@@ -47,10 +48,10 @@
         </div> </br>
         <!-- The create button section -->
         <div class="form-group col-md-2">
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">Add</button>
         </div>
     </form>
-
+</div>
 
 </body>
 
