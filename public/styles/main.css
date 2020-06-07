@@ -1,6 +1,6 @@
 *{
-  font-family: 'Tenali Ramakrishna', sans-serif;
-  }
+  font-family: 'Raleway', sans-serif;
+
   
   .wrapper {
   width: 1300px;
@@ -193,7 +193,7 @@
   }
   
   .register:hover {
-   color: blue;
+   color: darkgray;
   }
  
   
