@@ -3,17 +3,27 @@ body{
     background-image:none;
     height: 100vh;
     color: blue
-   
+    
 }
 
 h1 {
+    text-align: center;
     background: rgb(23,215,223);
     background: linear-gradient(106deg, rgba(23,215,223,1) 0%, rgba(182,54,217,1) 35%, rgba(0,53,255,1) 100%);
     color: cornsilk;
     }
 
+.wrapper{
+   text-align: center;
+   margin-left: 550px;
+   margin-right: -475px;
+}
 
-    
+      
+     
+
+
+
 
 
 button{
