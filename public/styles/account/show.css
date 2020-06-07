@@ -1,7 +1,16 @@
 body{
-    
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1{
+    text-align: center;
+    background: linear-gradient(106deg, rgba(23,215,223,1) 0%, rgba(216,139,246,1) 28%, rgba(0,53,255,1) 100%);
+    color: cornsilk;
+}
 span{
 font-weight: bolder;
+color: blue;
+text-align: center;
 }
 /* Css for the table scrolling */
 .my-custom-scrollbar {
@@ -15,10 +24,8 @@ font-weight: bolder;
 
 /* Nav */
 nav{
-    background-color:linear-gradient(106deg, rgba(23,215,223,1) 0%, rgba(216,139,246,1) 28%, rgba(0,53,255,1) 100%);;
-    ;
-    
-}
+    background-color:linear-gradient(106deg, rgba(23,215,223,1) 0%, rgba(216,139,246,1) 28%, rgba(0,53,255,1) 100%);
+    }
 
 a{
     color:cornsilk;
@@ -26,7 +33,7 @@ a{
 
 
 nav{
-    background-color:#30324A ;
+    background-color:linear-gradient(106deg, rgba(23,215,223,1) 0%, rgba(216,139,246,1) 28%, rgba(0,53,255,1) 100%);
 }
 
 a{
