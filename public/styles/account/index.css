@@ -1,17 +1,17 @@
 body{
-    font-family: "Raleway", sans-serif;
+    font-family: 'Quicksand', sans-serif;
     text-align: center;
 }
 .container{
-    color: cornsilk;
-    background-color: rgb(23,215,223);
-    background: linear-gradient(106deg, rgba(23,215,223,1) 0%, rgba(182,54,217,1) 35%, rgba(0,53,255,1) 100%);
+    color:cornsilk;
+    background-color: none;
     width: 400px;
     height:100px;
     border-radius: 25px;
     overflow: auto;
     text-align: center;
-    font-family: "Raleway", sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    color: #2517e8;
     text-transform: uppercase;
 }
 
@@ -41,7 +41,7 @@ p{
     
 }
 a{
-    color: cornsilk;
+    color: blue;
 }
 h1{
     background-color: rgb(23,215,223);
@@ -52,7 +52,7 @@ h1{
 h3{
     text-align: center;
     background-color: rgb(23,215,223);
-    background: linear-gradient(106deg, rgba(23,215,223,1) 0%, rgba(182,54,217,1) 35%, rgba(0,53,255,1) 100%);
+    background: linear-gradient(106deg, rgba(23,215,223,1) 0%, rgba(182,54,217,1) 35%, rgba(0,53,255,1) 100%);;
     color: cornsilk;
 
 }
@@ -65,7 +65,7 @@ button{
     display:inline-block;
     cursor:pointer;
     color: cornsilk;
-    font-family: "Raleway", sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-size:20px;
     font-weight:bold;
     padding:13px 32px;
@@ -78,15 +78,16 @@ button{
 }
 .button:hover {
     background:linear-gradient(to bottom, #2517e8 5%, #d43fd4 100%);
-    background-color:#2517e8;
+    background-color: blue;
 }
 .button:active {
     position:relative;
     top:1px;
+
 }
 
         
-button:hover{
+.button:hover{
 color: darkgray;
 }
 
@@ -100,7 +101,7 @@ nav{
 
 
 a{
-    color:cornsilk;
+    color: blue;
 }
 
 a:hover{
