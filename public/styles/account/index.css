@@ -1,10 +1,11 @@
 body{
     font-family: 'Quicksand', sans-serif;
     text-align: center;
+    letter-spacing: 0.2em;
 }
 .container{
     color:cornsilk;
-    background-color: none;
+    background-color:darkgray;
     width: 400px;
     height:100px;
     border-radius: 25px;
@@ -32,27 +33,30 @@ span{
     
     margin:10px auto;
     font-weight: bolder;
+    color: white;
     
 }
 
 p{
     margin:10px auto;
     position: relative;
+    color: cornsilk;
     
 }
-a{
-    color: blue;
-}
+
 h1{
     background-color: rgb(23,215,223);
     background: linear-gradient(106deg, rgba(23,215,223,1) 0%, rgba(182,54,217,1) 35%, rgba(0,53,255,1) 100%);
     color: cornsilk;
+    height:60px;
 }
 
 h3{
+
     text-align: center;
     background-color: rgb(23,215,223);
     background: linear-gradient(106deg, rgba(23,215,223,1) 0%, rgba(182,54,217,1) 35%, rgba(0,53,255,1) 100%);;
+   
     color: cornsilk;
 
 }
@@ -76,18 +80,18 @@ button{
    
 
 }
-.button:hover {
+button:hover {
     background:linear-gradient(to bottom, #2517e8 5%, #d43fd4 100%);
     background-color: blue;
 }
-.button:active {
+button:active {
     position:relative;
     top:1px;
 
 }
 
         
-.button:hover{
+button:hover{
 color: darkgray;
 }
 
@@ -96,15 +100,19 @@ nav{
     background-color: rgb(23,215,223);
     background: linear-gradient(106deg, rgba(23,215,223,1) 0%, rgba(182,54,217,1) 35%, rgba(0,53,255,1) 100%);
     position: relative;
-    top: 640px;
+
     }
 
 
 a{
-    color: blue;
+    color: cornsilk;
 }
 
 a:hover{
     color: darkgray;
+}
+
+.acctNum:hover{
+color: white;
 }
 

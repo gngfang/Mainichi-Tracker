@@ -33,8 +33,11 @@ h1{
     width: auto;
     margin: 80px auto ;
     padding-bottom: 20px;
-   }
 
+   }
+.form-control{
+    text-align: center;
+}
 
 button{
         box-shadow: 0px 10px 14px -7px #332773;
@@ -52,6 +55,7 @@ button{
         text-shadow:0px 1px 0px #3e488a;
         letter-spacing: 0.1em;
         margin-top: 20px;
+        letter-spacing: 0.2em;
     }
     .button:hover {
         background:linear-gradient(to bottom, #2517e8 5%, #d43fd4 100%);
