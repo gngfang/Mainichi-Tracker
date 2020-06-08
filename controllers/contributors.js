@@ -27,7 +27,7 @@ router.get('/', function (req, res) {
     if (error) {
         console.log(error);
     } else {
-        res.redirect('/contributors, index');
+        res.redirect('/contributors, create');
     }
 });
 });
