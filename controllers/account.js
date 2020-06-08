@@ -122,21 +122,6 @@ router.delete('/:id', function (req, res) {
 });
 
 
-//About Route
-router.get('/', function (req, res) {
-    db.Contributors.find({}, function (error, findContributors) {
-    if (error) {
-    res.send({ message: "No Contributors" })
-    } else {
-    const context = { contributors: findContributors }
-    res.render('/contributors, about.ejs', context);
-    }
-    });
-    });
-
-
-
-
 
 
 

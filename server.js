@@ -59,7 +59,8 @@ app.use('/accounts', authRequired, controllers.account);
 /* Transaction Route */
 app.use('/transactions', authRequired, controllers.transaction);
 
-
+//contributors route
+app.use('/contributors', controllers.contributors);
 
 /* Server Bind */
 
