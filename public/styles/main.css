@@ -47,6 +47,8 @@
   rgba(76, 216, 255, 0.4),
   rgba(30, 108, 217, 0.4)),
   url('https://images.unsplash.com/photo-1485368647436-ff0fb9990605?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4235040dd51e1a04bda747f28d92f9e6&auto=format&fit=crop&w=1349&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
   }
   
  .content {
@@ -77,7 +79,7 @@
   border-radius: 2rem;
   padding: .6rem 3.5rem;
   font-weight: 700;
-  color: #fff;
+  color: black;
   text-decoration: none;
   text-align: center;
   }
@@ -109,6 +111,7 @@
   margin-left: -15px;
   bottom: 45%;
   cursor: pointer;
+
   }
   
   /* - - - - - SERVICES STYLES - - - - - */
@@ -197,5 +200,7 @@
   .register:hover {
    color: darkgray;
   }
- 
-  
+
+  .username:hover{
+    color:black;
+  }

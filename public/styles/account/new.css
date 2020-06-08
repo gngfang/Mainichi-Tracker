@@ -2,7 +2,8 @@ body{
     font-family: 'Quicksand', sans-serif;
     background-image:none;
     height: 100vh;
-    color: blue
+    color: #1f1f1f;
+    letter-spacing:0.2em;
     
 }
 
@@ -11,18 +12,8 @@ h1 {
     background: rgb(23,215,223);
     background: linear-gradient(106deg, rgba(23,215,223,1) 0%, rgba(182,54,217,1) 35%, rgba(0,53,255,1) 100%);
     color: cornsilk;
+    height: 60px;
     }
-
-.wrapper{
-   text-align: center;
-   margin-left: 550px;
-   margin-right: -475px;
-}
-
-      
-     
-
-
 
 
 
@@ -50,3 +41,28 @@ button{
     top:1px;
 }
  
+.form-group{
+    margin:0 auto;
+    text-align: center;
+}
+.form-control{
+    text-align: center;
+}
+
+
+
+nav{
+    background-color: rgb(23,215,223);
+    background: linear-gradient(106deg, rgba(23,215,223,1) 0%, rgba(182,54,217,1) 35%, rgba(0,53,255,1) 100%);
+    position: relative;
+
+    }
+
+
+a{
+    color: cornsilk;
+}
+
+a:hover{
+    color: darkgray;
+}

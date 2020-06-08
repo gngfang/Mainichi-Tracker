@@ -13,7 +13,7 @@ router.get('/', function (req, res) {
         if (error) {
             res.send({ message: "Internal Server Error" })
         } else {
-            const context = { account: allAccount }
+            const context = { account: allAccount };
             res.render('account/index', context);
         }
     });
@@ -51,6 +51,7 @@ router.post('/', function (req, res) {
 // Show Route
 
 router.get('/:id', function (req, res) {
+
     db.Account.findById(req.params.id).populate("transactions").exec(function (error, showAccount) {
         if (error) {
             res.send({ message: "Internal Server Error" })
@@ -59,7 +60,7 @@ router.get('/:id', function (req, res) {
             res.render('account/show', context);
         }
 
-    })
+    });
 
 });
 

@@ -1,6 +1,6 @@
 /* Connecting mongo */
 const mongoose = require('mongoose');
-const connectionString = "mongodb+srv://xscullark:bluetee2@cluster1-qxtmc.mongodb.net/<dbname>?retryWrites=true&w=majority";
+const connectionString = "mongodb://localhost:27017/tracker";
 
 mongoose.connect(connectionString, {
 
@@ -18,7 +18,6 @@ mongoose.connect(connectionString, {
 module.exports = {
     Account: require('./Account'),
     Transaction: require('./Transaction'),
-    User: require('./User'),
-    Contributors: require('./Contributors')
+    User: require('./User')
 };
 

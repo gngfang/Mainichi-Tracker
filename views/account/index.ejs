@@ -12,21 +12,19 @@
 
 <body>
 
-    <h1>Accounts Page</h1>
-
-     <h3>Account List</h3>
-
-
-    <hr>
+    <h1>Accounts List</h1>
+    </br>
     <ul>
         <% account.forEach(accounts=>{%>
         <div class="container">
 
             <li>
-   
-       </br>
+
+                </br>
+
                 <span> Account Number :</span>
-                <a href="/accounts/<%= accounts._id %> ">
+                <a class="acctNum" href="/accounts/<%= accounts._id %> ">
+
 
                     <%=accounts.accountNumber %>
                 </a>
@@ -49,7 +47,7 @@
     </a>
 
     <nav class="navbar fixed-bottom">
-        <a class="navbar-brand" href="/">Back</a>
+        <a class="navbar-brand" href="/">Home</a>
     </nav>
 
 </body>
