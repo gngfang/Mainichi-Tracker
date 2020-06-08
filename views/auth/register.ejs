@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/register/register.css">
+    <title>Register</title>
+</head>
+
+<body>
+    <h1>Register</h1>
+
+
+    <form action="/register" method="POST">
+        <div class="form-group col-md-4">
+            <label for="username">Username</label>
+            <input type="text" name="username" class="form-control" placeholder="Enter username">
+            <small class="form-text text-muted small">Ex: pinavibes, pinavibes123</small>
+
+        </div>
+        <div class="form-group col-md-4">
+            <label for="email">Email Address</label>
+            <input type="email" name="email" class="form-control" placeholder="Enter email">
+            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Password">
+        </div>
+
+        <button type="submit">Register</button></br>
+    </form> </br>
+
+    <nav class="navbar navbar-expand-lg fixed-bottom">
+        <a class="navbar-brand" href="/"> Back</a>
+
+    </nav>
+</body>
+
+</html>

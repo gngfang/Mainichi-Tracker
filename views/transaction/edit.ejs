@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Tenali+Ramakrishna&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/styles/transaction/edit.css">
+    <title>New Transactions</title>
+</head>
+
+<body>
+    <h1> Update Transactions</h1></br>
+    <form action="/transactions/<%= transaction._id %>/update?_method=PUT" method="POST">
+
+
+
+        <!-- Transaction Type Section -->
+        <div class="form-group col-md-2">
+            <label for="transactionType">Transaction Type</label>
+            <select name="transactionType" class="form-control" required>
+                <option selected>Choose...</option>
+                <option>Deposit</option>
+                <option>Withdrawal</option>
+                <option>ACH Credit</option>
+                <option>ACH Debit</option>
+                <option>Check Deposit</option>
+                <option>Check Issuance</option>
+            </select> </br>
+        </div>
+
+        <!-- Transaction Amount section -->
+        <div class="form-group col-md-2">
+            <label for="transactionAmount">Amount</label>
+            <input type="number" name="transactionAmount" class="form-control" placeholder="Ex: 100,520 ..." required>
+        </div></br>
+
+        <!-- Transactions Date -->
+        <div class="form-group col-md-2">
+            <label for="date">Date</label>
+            <input type="date" name="date" class="form-control" placeholder="Ex: 12/12/2020" required>
+        </div></br>
+
+        <!-- Transaction Description -->
+        <div class="form-group col-md-2">
+            <label for="transactionDescription">Description:</label>
+            <textarea name="transactionDescription" class="form-control" cols="30" rows="1"> </textarea>
+        </div> </br></br>
+
+        <!-- The create button section -->
+        <div class="form-group col-md-2">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </form>
+
+    <nav class="navbar fixed-bottom">
+        <a class="navbar-brand" href="/accounts">Back</a>
+    </nav </body>
+
+</html>

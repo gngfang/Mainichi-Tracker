@@ -1,0 +1,76 @@
+body{
+    font-family: 'Quicksand', sans-serif;
+    background-image:none;
+    height: 100vh;
+    letter-spacing: 0.2em;
+    
+}
+h1{
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(106deg, rgba(23,215,223,1) 0%, rgba(216,139,246,1) 28%, rgba(0,53,255,1) 100%);
+    color: cornsilk;
+    text-align: center;
+    height:60px;
+} 
+
+
+.form-group{
+    margin:0 auto;
+    text-align: center;
+}
+.form-control{
+    text-align: center;
+}
+
+/* .wrapper{
+    text-align: center;
+    margin-left: 550px;
+    margin-right: -450px;
+ }  in case zenia need to addd the wrapper back to div*/
+
+ button{
+    box-shadow: 0px 10px 14px -7px #332773;
+    background:linear-gradient(to bottom, #d43fd4 5%, #2517e8 100%);
+    background-color:#d43fd4;
+    border-radius:8px;
+    display:inline-block;
+    cursor:pointer;
+    color: cornsilk;
+    font-family: 'Quicksand', sans-serif;
+    font-size:20px;
+    font-weight:bold;
+    padding: 13px 32px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #3e488a;
+    letter-spacing: 0.1em;
+}
+.button:hover {
+    background:linear-gradient(to bottom, #2517e8 5%, #d43fd4 100%);
+    background-color:#2517e8;
+}
+.button:active {
+    position:relative;
+    top:1px;
+}
+
+        
+button:hover{
+color: darkgray;
+}
+
+
+nav{
+    background-color: rgb(23,215,223);
+    background: linear-gradient(106deg, rgba(23,215,223,1) 0%, rgba(182,54,217,1) 35%, rgba(0,53,255,1) 100%);
+    position: relative;
+
+    }
+
+
+a{
+    color: cornsilk;
+}
+
+a:hover{
+    color: darkgray;
+}

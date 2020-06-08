@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap">
+    <link rel="stylesheet" href="/styles/account/edit.css">
+    <title>Update <%= account.accountNumber %> </title>
+</head>
+
+<body>
+
+    <h1>Update Account : <%= account.accountNumber %></h1>
+    </br>
+
+
+    <form action="/accounts/<%= account._id%>?_method=PUT" method="POST">
+        <!-- Account Number section -->
+        <div class="form">
+            <div class="form-group col-md-2">
+                <label for="accountNumber">Account Number</label>
+                <input type="text" name="accountNumber" class="form-control" value=" <%= account.accountNumber %>"
+                    required>
+
+            </div></br>
+            <!-- Bank name section -->
+            <div class="form-group col-md-2">
+                <label for="institution">Institution</label>
+                <input type="text" name="institution" class="form-control" value=" <%= account.institution %>" required>
+            </div></br>
+            <!-- Account Type section -->
+            <div class=" form-group col-md-2">
+                <label for="accountType">Account Type</label>
+                <select name="accountType" class="form-control" value=" <%= account.accounttype %>" required>
+                    <option selected> Choose...</option>
+                    <option>Checking</option>
+                    <option>Saving</option>
+                </select> <br>
+
+            </div>
+            <!-- Account Balance -->
+            <div class="form-group col-md-2">
+                <label for="balance">Balance</label>
+                <input type="text" name="balance" class="form-control" value="<%= account.balance%>" required>
+            </div></br>
+
+            <!-- Account Purpose section -->
+            <div class="form-group col-md-2">
+                <label for="description">Account Purpose</label>
+                <textarea name="description" class="form-control" cols="30"
+                    rows="1"><%= account.description %> </textarea>
+
+            </div> </br> </br>
+            <!-- The create button section -->
+            <div class="form-group col-md-2">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </form>
+    <nav class="navbar fixed-bottom">
+        <a class="navbar-brand" href="/accounts/<%= account._id %> ">Back</a>
+    </nav>
+</body>
+
+</html>

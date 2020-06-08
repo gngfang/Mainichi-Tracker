@@ -1,16 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html class="no-js">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
-    <h1>Mainichi Tracker</h1>
-    </br>
-    <button>Enter</button>
+
+    <!----banner-->
+    <div id="banner">
+        <div class="wrapper">
+            <!----Header-->
+            <!----Header-->
+            <header>
+                <h1 class="logo"></h1>
+                <div class="menu-button">
+                    <h4>Menu-button</h4>
+                </div>
+                <nav>
+                    <!-- the if statement to see if there an user or no -->
+                    <% if(user){%>
+                    <div class="logoutDiv">
+                        <a href="/accounts">
+                            <p class="username"><%= user.username %> </p>
+                        </a>
+                        <form action="/logout?_method=DELETE" method="POST" class="logoutForm">
+                            <input type="submit" value="Logout" class="logout">
+                        </form>
+                    </div>
+                    <% }else{ %>
+                    <!-- if there no user show register and login -->
+                    <nav class="navbar navbar-expand-lg">
+                        <div class="loginDiv">
+                            <a class="navbar-brand register" <a href="/register">Register</a>
+                            <a class="navbar-brand login" <a href="/login">Login</a>
+                        </div>
+                    </nav>
+                    <% } %>
+                </nav>
+            </header>
+            <!-- END HEADER -->
+            <div class="content">
+                <h1 class="title">Innovation for changing the world of finance</h1>
+                <h2 class="sub_title">Our intergrated dashboard system features puts you in control. Wether you are
+                    saving for a major purchase or rainny day Manichi is there every step of the way.
+                </h2>
+
+            </div>
+        </div>
+
+        <!-- END BANNER -->
+        <!-- SERVICES -->
+        <section id="services">
+            <div class="wrapper">
+                <ul class="branding">
+                    <li>
+                        <h1 class="service_title">Overview</h1>
+                    </li>
+                    <li>
+                        <p>
+                            All-in-one finances, we bring all of your money to one place from balances and bills to
+                            credit score and much more. Easily create budgets and see suggestions based on your
+                            spending. Unlimited fico score checking without impacting your score because when you're
+                            ontop of your money...Life's good.
+                        </p>
+                    </li>
+                    <li><a href="#" class="button button_highlight">Learn More</a></li>
+                </ul>
+                <ul class="selling">
+                    <li>
+                        <h1 class="service_title">Why Choose Us</h1>
+                    </li>
+                    <li>
+                        <p>
+                            Mainichi is versatile enough to help anyone’s money make sense without much effort. There’s
+                            no wrong way to use it, and nothing to lose getting started. You’ll be surprised how
+                            life-changing something so simple can be.
+                        </p>
+                    </li>
+                    <li><a href="#" class="button button_highlight">Learn More</a></li>
+                </ul>
+                <ul class="offer">
+                    <li>
+                        <h1 class="service_title">Your information is secure</h1>
+                    </li>
+                    <li>
+                        <p>
+                            We’re committed to keeping your data secure. With multiple safety measures like secure
+                            encryption and multi-factor authentication, we work to keep your information protected.
+                            Remotely access and manage your account
+                            from anywhere.
+                    <li><a href="#" class="button button_highlight">Learn More</a></li>
+                    <p>Created By The Manichi Team</p>
+                    </p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        </header>
+    </div>
+    </div>
 </body>
 
 </html>

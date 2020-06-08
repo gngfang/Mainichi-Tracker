@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Tenali+Ramakrishna&display=swap" rel="stylesheet">
+    <title>Transactions</title>
+</head>
+
+<body>
+    <h1>Welcome to Transactions</h1>
+    <div>
+
+        <ul>
+            <% transaction.forEach(trans=>{ %>
+            <li>
+                <a href="/transactions/<%= trans._id %>"> <%=trans.transactionType %> </a>
+                <p><%= trans.date %> </p>
+                <a href=" /accounts/<%=trans.accounts._id %>"> <%=trans.accounts.accountNumber%></a>
+                <form action=" /transactions/<%=trans._id%>?_method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+
+            </li>
+
+            <%}) %>
+
+        </ul>
+    </div>
+    <p>hello</p>
+
+    <a href="/transactions/new">new</a>
+
+</body>
+
+</html>
